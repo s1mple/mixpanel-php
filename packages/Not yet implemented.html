@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; \Not yet implemented
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <script src="../js/template.js" type="text/javascript"></script>
+    <script src="../js/prettify/prettify.min.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span> </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                                                </ul>
+                    </li>
+                    <li class="dropdown" id="charts-menu">
+                        <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graph_class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../errors.html"><i class="icon-list-alt"></i>&#160;Errors</a></li>
+                            <li><a href="../markers.html"><i class="icon-list-alt"></i>&#160;Markers</a></li>
+                            <li><a href="../deprecated.html"><i class="icon-list-alt"></i>&#160;Deprecated</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="go_to_top">
+        <a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>
+    </div>
+</div>
+
+<div id="___" class="container">
+    <noscript>
+        <div class="alert alert-warning">
+            Javascript is disabled; several features are only available if Javascript is enabled.
+        </div>
+    </noscript>
+
+        
+    <div class="row">
+
+        <div class="span4">
+            <div class="btn-group view pull-right" data-toggle="buttons-radio">
+                <button class="btn details" title="Show descriptions and method names">
+                    <i class="icon-list"></i></button><button class="btn simple" title="Show only method names">
+                    <i class="icon-align-justify"></i>
+                </button>
+            </div>
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">
+                    <i class="icon-map-marker"></i> Packages
+                </li>
+                    
+    
+            </ul>
+        </div>
+
+        <div class="span8 package-contents">
+                
+    
+        <ul class="breadcrumb">
+            <li><a href="../index.html"><i class="icon-th"></i></a></li>
+                
+                
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/default.html"></a>
+    </li>
+
+    
+    <li>
+        <span class="divider">\</span><a href="../packages/Not yet implemented.html">Not yet implemented</a>
+    </li>
+
+        </ul>
+
+        
+        
+                    <div class="package-indent">
+                <h3><i class="icon-custom icon-class"></i> Classes, interfaces and traits</h3>
+                
+                
+                                        <div id="ConsumerStrategies_CurlConsumer" class="element ajax clickable class">
+        <h1>ConsumerStrategies_CurlConsumer<a href="../classes/ConsumerStrategies_CurlConsumer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/ConsumerStrategies_CurlConsumer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="Mixpanel" class="element ajax clickable class">
+        <h1>Mixpanel<a href="../classes/Mixpanel.html">¶</a></h1>
+        <p class="short_description">This is the main class for the Mixpanel PHP Library. It provides all of the methods you need to track events and
+create/update profiles.</p>
+        <div class="details collapse">-- Architecture --
+
+This library is built such that all messages are buffered in an in-memory &quot;queue&quot;
+The queue will be automatically flushed at the end of every request. Alternatively, you can call &quot;flush()&quot; manually
+at any time. Flushed messages will be passed to a Consumer&#039;s &quot;persist&quot; method. The library comes with a handful of
+Consumers. The &quot;SocketConsumer&quot; is used by default which will send the messages to Mixpanel using a socket.
+You can implement your own custom Consumer to customize how a message is sent to Mixpanel. This can be useful when
+you want to put messages onto a distributed queue (such as ActiveMQ or Kestrel) instead of writing to Mixpanel in
+the user thread.
+
+-- Example --
+
+$mp = Mixpanel::getInstance(&quot;MY_TOKEN&quot;);
+
+$mp-&gt;track(&quot;My Event&quot;);</div>
+        <a href="../classes/Mixpanel.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="MixpanelPeopleProducer" class="element ajax clickable class">
+        <h1>MixpanelPeopleProducer<a href="../classes/MixpanelPeopleProducer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/MixpanelPeopleProducer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="MixpanelBaseProducer" class="element ajax clickable class">
+        <h1>MixpanelBaseProducer<a href="../classes/MixpanelBaseProducer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/MixpanelBaseProducer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConsumerStrategies_SocketConsumer" class="element ajax clickable class">
+        <h1>ConsumerStrategies_SocketConsumer<a href="../classes/ConsumerStrategies_SocketConsumer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/ConsumerStrategies_SocketConsumer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConsumerStrategies_FileConsumer" class="element ajax clickable class">
+        <h1>ConsumerStrategies_FileConsumer<a href="../classes/ConsumerStrategies_FileConsumer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/ConsumerStrategies_FileConsumer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="MixpanelEvents" class="element ajax clickable class">
+        <h1>MixpanelEvents<a href="../classes/MixpanelEvents.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/MixpanelEvents.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="ConsumerStrategies_AbstractConsumer" class="element ajax clickable class">
+        <h1>ConsumerStrategies_AbstractConsumer<a href="../classes/ConsumerStrategies_AbstractConsumer.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/ConsumerStrategies_AbstractConsumer.html" class="more">« More »</a>
+    </div>
+
+                                        <div id="MixpanelBase" class="element ajax clickable class">
+        <h1>MixpanelBase<a href="../classes/MixpanelBase.html">¶</a></h1>
+        <p class="short_description">Class MixpanelBase</p>
+        <div class="details collapse">This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</div>
+        <a href="../classes/MixpanelBase.html" class="more">« More »</a>
+    </div>
+
+                            </div>
+            
+    
+        </div>
+    </div>
+</div>
+
+<footer class="span12">
+    Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
+    <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
+    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
+    generated on Thu, 20 Jun 2013 19:42:26 +0000.<br/>
+</footer>
+</body>
+</html>

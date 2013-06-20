@@ -1,0 +1,974 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview({
+              animated: "fast",
+              collapsed: true,
+              persist: "cookie"
+            });
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div id="maincontainer"><div id="header"><h1>
+                phpDocumentor
+              <img src="images/top-stopper.png"></img></h1></div><ul xmlns="" id="menu">
+<li><a href="graph.html">Class diagram</a></li>
+<li><a href="markers.html">TODO / Markers</a></li>
+<li><a href="parse_markers.html">Errors</a></li>
+</ul>
+<div id="content_container"><div xmlns="" id="content">
+<h1>Mixpanel.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<a name="includes"></a><h2>Includes</h2> <span class="nb-faded-text">(Require Once)</span><br> <span class="nb-faded-text">(Require Once)</span><br> <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="Mixpanel" class="class">
+<h3>Mixpanel</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="base.MixpanelBase.html#%5CMixpanelBase">\MixpanelBase</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>This is the main class for the Mixpanel PHP Library.</em><br><p>It provides all of the methods you need to track events and
+create/update profiles.</p>
+
+<p>-- Architecture --</p>
+
+<p>This library is built such that all messages are buffered in an in-memory "queue"
+The queue will be automatically flushed at the end of every request. Alternatively, you can call "flush()" manually
+at any time. Flushed messages will be passed to a Consumer's "persist" method. The library comes with a handful of
+Consumers. The "SocketConsumer" is used by default which will send the messages to Mixpanel using a socket.
+You can implement your own custom Consumer to customize how a message is sent to Mixpanel. This can be useful when
+you want to put messages onto a distributed queue (such as ActiveMQ or Kestrel) instead of writing to Mixpanel in
+the user thread.</p>
+
+<p>-- Example --</p>
+
+<p>$mp = Mixpanel::getInstance("MY_TOKEN");</p>
+
+<p>$mp->track("My Event");</p><br><div id="methods_Mixpanel">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Mixpanel::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Mixpanel::_debug()">_debug</a>,
+      <a style="font-style: italic;" href="#Mixpanel::_log()">_log</a>,
+      <a style="font-style: italic;" href="#Mixpanel::createAlias()">createAlias</a>,
+      <a style="font-style: italic;" href="#Mixpanel::enqueue()">enqueue</a>,
+      <a style="font-style: italic;" href="#Mixpanel::enqueueAll()">enqueueAll</a>,
+      <a style="font-style: italic;" href="#Mixpanel::flush()">flush</a>,
+      <a style="font-style: italic;" href="#Mixpanel::getInstance()">getInstance</a>,
+      <a style="font-style: italic;" href="#Mixpanel::getProperty()">getProperty</a>,
+      <a style="font-style: italic;" href="#Mixpanel::register()">register</a>,
+      <a style="font-style: italic;" href="#Mixpanel::registerAll()">registerAll</a>,
+      <a style="font-style: italic;" href="#Mixpanel::registerAllOnce()">registerAllOnce</a>,
+      <a style="font-style: italic;" href="#Mixpanel::registerOnce()">registerOnce</a>,
+      <a style="font-style: italic;" href="#Mixpanel::reset()">reset</a>,
+      <a style="font-style: italic;" href="#Mixpanel::track()">track</a>,
+      <a style="font-style: italic;" href="#Mixpanel::unregister()">unregister</a>,
+      <a style="font-style: italic;" href="#Mixpanel::unregisterAll()">unregisterAll</a>,
+      <div class="method">
+<a id="Mixpanel::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+             
+            $token,
+          array
+             
+            $options
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Instantiates a new Mixpanel instance</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$token</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::_debug()"></a><h3>_debug<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Returns true if in debug mode, false if in production mode</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>inherited_from</td>
+<td><a href="base.MixpanelBase.html#%5CMixpanelBase::_debug()"><small>\MixpanelBase::_debug()</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::_log()"></a><h3>_log<span class="nb-faded-text">(
+          
+             
+            $msg,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Log a message to PHP's error log</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$msg</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>inherited_from</td>
+<td><a href="base.MixpanelBase.html#%5CMixpanelBase::_log()"><small>\MixpanelBase::_log()</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::createAlias()"></a><h3>createAlias<span class="nb-faded-text">(
+          string|int
+             
+            $original_id,
+          string|int
+             
+            $new_id,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Alias an existing id with a different unique id.</em><br><small><p>This is helpful when you want to associate a generated id to
+a username or e-mail address.</p></small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$original_id</td>
+<td style="white-space: normal;">string|int</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$new_id</td>
+<td style="white-space: normal;">string|int</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::enqueue()"></a><h3>enqueue<span class="nb-faded-text">(
+          array
+             
+            $message
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Add an array representing a message to be sent to Mixpanel to the in-memory queue.</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$message</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::enqueueAll()"></a><h3>enqueueAll<span class="nb-faded-text">(
+          array
+             
+            $messages
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Add an array representing a list of messages to be sent to Mixpanel to a queue.</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$messages</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::flush()"></a><h3>flush<span class="nb-faded-text">(
+          int
+             
+            $desired_batch_size
+            = 50,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Flush the events queue</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$desired_batch_size</td>
+<td style="white-space: normal;">int</td>
+<td></td>
+<td>50</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::getInstance()"></a><h3>getInstance<span class="nb-faded-text">(
+          
+             
+            $token,
+          array
+             
+            $options
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">\Mixpanel</span>
+</h3>
+<h4>Description</h4>
+<em>Returns a singleton instance of Mixpanel</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$token</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>\Mixpanel</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::getProperty()"></a><h3>getProperty<span class="nb-faded-text">(
+          string
+             
+            $property,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Get a property that is set to be sent with every event</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$property</td>
+<td style="white-space: normal;">string</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::register()"></a><h3>register<span class="nb-faded-text">(
+          string
+             
+            $property,
+          mixed
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Register a property to be sent with every event.</em><br><small><p>If the property has already been registered, it will be
+overwritten.</p></small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$property</td>
+<td style="white-space: normal;">string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::registerAll()"></a><h3>registerAll<span class="nb-faded-text">(
+          array
+             
+            $props_and_vals
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Register multiple properties to be sent with every event.</em><br><small><p>If any of the properties have already been registered,
+they will be overwritten.</p></small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$props_and_vals</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::registerAllOnce()"></a><h3>registerAllOnce<span class="nb-faded-text">(
+          array
+             
+            $props_and_vals
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Register multiple properties to be sent with every event.</em><br><small><p>If any of the properties have already been registered,
+they will NOT be overwritten.</p></small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$props_and_vals</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::registerOnce()"></a><h3>registerOnce<span class="nb-faded-text">(
+          
+             
+            $property,
+          
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Register a property to be sent with every event.</em><br><small><p>If the property has already been registered, it will NOT be
+overwritten.</p></small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$property</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::reset()"></a><h3>reset<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Empty the events queue</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::track()"></a><h3>track<span class="nb-faded-text">(
+          string
+             
+            $event,
+          array
+             
+            $properties
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Track an event defined by $event associated with metadata defined by $properties</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$event</td>
+<td style="white-space: normal;">string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$properties</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::unregister()"></a><h3>unregister<span class="nb-faded-text">(
+          string
+             
+            $property,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Un-register an property to be sent with every event.</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$property</td>
+<td style="white-space: normal;">string</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Mixpanel::unregisterAll()"></a><h3>unregisterAll<span class="nb-faded-text">(
+          array
+             
+            $properties,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Un-register a list of properties to be sent with every event.</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$properties</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Mixpanel">
+<h4>Properties</h4>
+<a href="#Mixpanel::%24_defaults">$_defaults</a>,
+      <a href="#Mixpanel::%24_events">$_events</a>,
+      <a href="#Mixpanel::%24_instance">$_instance</a>,
+      <a href="#Mixpanel::%24_options">$_options</a>,
+      <a href="#Mixpanel::%24people">$people</a>,
+      <div class="method">
+<a id="Mixpanel::$_defaults"></a><h3>
+<span class="nb-faded-text">array 
+          private 
+          </span>$_defaults
+          =
+          array("max_batch_size" =&gt; 50, "max_queue_size" =&gt; 1000, "debug" =&gt; false, "consumer" =&gt; "socket", "host" =&gt; "api.mixpanel.com", "events_endpoint" =&gt; "/track", "people_endpoint" =&gt; "/engage", "use_ssl" =&gt; true, "error_callback" =&gt; null)</h3>
+<em>Default options that can be overridden via the $options constructor arg</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="Mixpanel::$_events"></a><h3>
+<span class="nb-faded-text">\MixpanelEvents 
+          private 
+          </span>$_events
+          =
+          </h3>
+<em>An instance of the MixpanelEvents class</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="Mixpanel::$_instance"></a><h3>
+<span class="nb-faded-text">\Mixpanel 
+          private 
+          static </span>$_instance
+          =
+          </h3>
+<em>An instance of the Mixpanel class (for singleton use)</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="Mixpanel::$_options"></a><h3>
+<span class="nb-faded-text">array 
+          protected 
+          </span>$_options
+          =
+          array()</h3>
+<em>An array of options to be used by the Mixpanel library.</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="Mixpanel::$people"></a><h3>
+<span class="nb-faded-text">\MixpanelPeople 
+          public 
+          </span>$people
+          =
+          </h3>
+<em>An instance of the MixpanelPeople class (used to create/update profiles)</em><br><small></small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://www.phpdoc.org">phpDocumentor 2.0.0a12</a>.</small></div><div id="index"><div class="padder"><script xmlns="" type="text/javascript">
+      $(function() {
+
+        var is_chrome = /chrome/.test( navigator.userAgent.toLowerCase() );
+        var is_local = /file:\/\//.test(document.location.href);
+        if (is_chrome && is_local)
+        {
+          // search is disabled on chrome with local files due to http://code.google.com/p/chromium/issues/detail?id=40787
+          return;
+        }
+
+        $("#search_box").show();
+        var search_index = {};
+        $.ajax({
+          url: "search_index.xml",
+          dataType: ($.browser.msie) ? "text" : "xml",
+          error: function(data) {
+            alert('An error occurred using the search data');
+          },
+          success: function( data ) {
+            var xml;
+            if (typeof data == "string") {
+              xml = new ActiveXObject("Microsoft.XMLDOM");
+              xml.async = false;
+              xml.loadXML(data);
+            } else {
+              xml = data;
+            }
+
+            search_index = $("node", xml).map(function() {
+              type = $("type", this).text();
+              return {
+                value: $("value", this).text(),
+                label: '<img src="images/icons/'+type+'.png" align="absmiddle">'+$("value", this).text(),
+                id: $("id", this).text(),
+              };
+            }).get();
+
+            $("#search_box").autocomplete({
+              source: search_index,
+              select: function(event, ui) {
+                // redirect to the documentation
+                if ((parent) && (parent.content))
+                {
+                  parent.content.document.location = ''+ui.item.id;
+                }
+                else
+                {
+                  jQuery(document).location = ''+ui.item.id;
+                }
+                applySearchHash();
+              }
+            });
+          }
+        });
+      });
+    </script><input id="search_box"></input><div class="section">
+<h1>Namespaces</h1>
+<ul id="namespaces-" class="filetree"><li class="closed">
+<span class="folder">global</span><ul>
+<li><span class="class"><a href="ConsumerStrategies.AbstractConsumer.html#ConsumerStrategies_AbstractConsumer">ConsumerStrategies_AbstractConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.CurlConsumer.html#ConsumerStrategies_CurlConsumer">ConsumerStrategies_CurlConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.FileConsumer.html#ConsumerStrategies_FileConsumer">ConsumerStrategies_FileConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.SocketConsumer.html#ConsumerStrategies_SocketConsumer">ConsumerStrategies_SocketConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="Mixpanel.html#Mixpanel">Mixpanel</a><br><small>This is the main class for the Mixpanel PHP Library.</small></span></li>
+<li><span class="class"><a href="base.MixpanelBase.html#MixpanelBase">MixpanelBase</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelBaseProducer.html#MixpanelBaseProducer">MixpanelBaseProducer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelEvents.html#MixpanelEvents">MixpanelEvents</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelPeople.html#MixpanelPeopleProducer">MixpanelPeopleProducer</a><br><small>Class MixpanelBase</small></span></li>
+</ul>
+</li></ul>
+</div><div class="section">
+<h1>Packages</h1>
+<ul id="packages-" class="filetree">
+<li class="closed">
+<span class="folder">Default</span><ul id="packages_Default" class="filetree"></ul>
+</li>
+<li class="closed">
+<span class="folder">Mixpanel</span><ul id="packages_Mixpanel" class="filetree"></ul>
+</li>
+</ul>
+</div>
+</div></div><div id="footer"><div class="padder"></div></div></div></body></html>

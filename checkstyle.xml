@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<checkstyle version="1.3.0">
+  <file name="base/MixpanelBase.php">
+    <error line="2" severity="critical" message="No short description for file base/MixpanelBase.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="ConsumerStrategies/AbstractConsumer.php">
+    <error line="2" severity="critical" message="No short description for file ConsumerStrategies/AbstractConsumer.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="7" severity="error" message="No DocBlock was found for \ConsumerStrategies_AbstractConsumer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="ConsumerStrategies/CurlConsumer.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file ConsumerStrategies/CurlConsumer.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="4" severity="error" message="No DocBlock was found for \ConsumerStrategies_CurlConsumer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="ConsumerStrategies/FileConsumer.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file ConsumerStrategies/FileConsumer.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="4" severity="error" message="No DocBlock was found for \ConsumerStrategies_FileConsumer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="ConsumerStrategies/SocketConsumer.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file ConsumerStrategies/SocketConsumer.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="36" severity="error" message="No DocBlock was found for \ConsumerStrategies_SocketConsumer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="139" severity="error" message="No DocBlock was found for method _createSocket()" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="162" severity="error" message="No DocBlock was found for method _destroySocket()" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="Mixpanel.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file Mixpanel.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="producers/MixpanelBaseProducer.php">
+    <error line="2" severity="critical" message="No short description for file producers/MixpanelBaseProducer.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="14" severity="error" message="No DocBlock was found for \MixpanelBaseProducer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="producers/MixpanelEvents.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file producers/MixpanelEvents.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="6" severity="error" message="No DocBlock was found for \MixpanelEvents" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+  <file name="producers/MixpanelPeople.php">
+    <error line="0" severity="error" message="No page-level DocBlock was found in file producers/MixpanelPeople.php" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+    <error line="4" severity="error" message="No DocBlock was found for \MixpanelPeopleProducer" source="phpDocumentor.phpDocumentor.phpDocumentor"/>
+  </file>
+</checkstyle>

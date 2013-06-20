@@ -1,0 +1,1720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a9" title="">
+  <file path="Base/MixpanelBase.php" hash="bcdb0aad918a925593ba7001b196166d" package="Default">
+    <class final="false" abstract="false" namespace="global" line="10" package="Default">
+      <extends/>
+      <name>Base_MixpanelBase</name>
+      <full_name>\Base_MixpanelBase</full_name>
+      <docblock line="3">
+        <description><![CDATA[Class MixpanelBase]]></description>
+        <long-description><![CDATA[<p>This a Base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</p>]]></long-description>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="17" namespace="global" package="Default">
+        <name>$_defaults</name>
+        <default><![CDATA[array("max_batch_size" => 50, "max_queue_size" => 1000, "debug" => false, "consumer" => "socket", "host" => "api.mixpanel.com", "events_endpoint" => "/track", "people_endpoint" => "/engage", "use_ssl" => true, "error_callback" => null)]]></default>
+        <docblock line="13">
+          <description><![CDATA[Default options that can be overridden via the $options constructor arg]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="13" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="34" namespace="global" package="Default">
+        <name>$_options</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="30">
+          <description><![CDATA[An array of options to be used by the Mixpanel library.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="30" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="41" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="37">
+          <description><![CDATA[Construct a new MixpanelBase object and merge custom options with defaults]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="37" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="41">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="51" package="Default">
+        <name>_log</name>
+        <full_name>_log</full_name>
+        <docblock line="47">
+          <description><![CDATA[Log a message to PHP's error log]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="param" description="" type="" variable="$msg"/>
+        </docblock>
+        <argument line="51">
+          <name>$msg</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="63" package="Default">
+        <name>_debug</name>
+        <full_name>_debug</full_name>
+        <docblock line="59">
+          <description><![CDATA[Returns true if in debug mode, false if in production mode]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="59" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Base/MixpanelBase.php</error>
+    </parse_markers>
+  </file>
+  <file path="ConsumerStrategies/AbstractConsumer.php" hash="5ac0f0f5b3315b03cca4eb85cbf86320" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="4" package="Default">
+      <extends>\Base_MixpanelBase</extends>
+      <name>ConsumerStrategies_AbstractConsumer</name>
+      <full_name>\ConsumerStrategies_AbstractConsumer</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="10" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="6">
+          <description><![CDATA[Creates a new AbstractConsumer]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="6" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="10">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="25" package="Default">
+        <name>_encode</name>
+        <full_name>_encode</full_name>
+        <docblock line="20">
+          <description><![CDATA[Encode an array to be persisted]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="20" name="param" description="" type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="20" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="25">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="34" package="Default">
+        <name>_handleError</name>
+        <full_name>_handleError</full_name>
+        <docblock line="29">
+          <description><![CDATA[Handles errors that occur in a consumer]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="29" name="param" description="" type="" variable="$code"/>
+          <tag line="29" name="param" description="" type="" variable="$msg"/>
+        </docblock>
+        <argument line="34">
+          <name>$code</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="34">
+          <name>$msg</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="global" line="53" package="Default">
+        <name>persist</name>
+        <full_name>persist</full_name>
+        <docblock line="48">
+          <description><![CDATA[Persist a batch of messages in whatever way the implementer sees fit]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="an array of messages to consume" type="array" variable="$batch">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="48" name="return" description="success or fail" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="53">
+          <name>$batch</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file ConsumerStrategies/AbstractConsumer.php</error>
+      <error line="4" code="50000">No DocBlock was found for \ConsumerStrategies_AbstractConsumer</error>
+    </parse_markers>
+  </file>
+  <file path="ConsumerStrategies/CurlConsumer.php" hash="3e18353478600084c74dfd68a5ef268e" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="4" package="Default">
+      <extends>\ConsumerStrategies_AbstractConsumer</extends>
+      <name>ConsumerStrategies_CurlConsumer</name>
+      <full_name>\ConsumerStrategies_CurlConsumer</full_name>
+      <property final="false" static="false" visibility="protected" line="9" namespace="global" package="Default">
+        <name>$_host</name>
+        <default><![CDATA[]]></default>
+        <docblock line="6">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="6" name="var" description="the host to connect to (e.g. api.mixpanel.com)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="15" namespace="global" package="Default">
+        <name>$_endpoint</name>
+        <default><![CDATA[]]></default>
+        <docblock line="12">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="12" name="var" description="the host-relative endpoint to write to (e.g. /engage)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="21" namespace="global" package="Default">
+        <name>$_timeout</name>
+        <default><![CDATA[]]></default>
+        <docblock line="18">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="18" name="var" description="timeout the socket connection timeout in seconds" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="27" namespace="global" package="Default">
+        <name>$_protocol</name>
+        <default><![CDATA[]]></default>
+        <docblock line="24">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="var" description="the protocol to use for the socket connection" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="33" namespace="global" package="Default">
+        <name>$_fork</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="30">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="30" name="var" description="true to fork the cURL process or false to use PHP's cURL extension" type="bool|null">
+            <type by_reference="false">bool</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="40" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="36">
+          <description><![CDATA[Creates a new CurlConsumer and assigns properties from the $options array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="36" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$options</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="56" package="Default">
+        <name>persist</name>
+        <full_name>persist</full_name>
+        <docblock line="51">
+          <description><![CDATA[Write to the given host/endpoint using either a forked cURL process or using PHP's cURL extension]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="51" name="param" description="" type="array" variable="$batch">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="51" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$batch</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="78" package="Default">
+        <name>_execute</name>
+        <full_name>_execute</full_name>
+        <docblock line="71">
+          <description><![CDATA[Write using the cURL php extension]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="param" description="" type="" variable="$url"/>
+          <tag line="71" name="param" description="" type="" variable="$data"/>
+          <tag line="71" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="71" name="throws" description="" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="78">
+          <name>$url</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="78">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="112" package="Default">
+        <name>_execute_forked</name>
+        <full_name>_execute_forked</full_name>
+        <docblock line="106">
+          <description><![CDATA[Write using a forked cURL process]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="106" name="param" description="" type="" variable="$url"/>
+          <tag line="106" name="param" description="" type="" variable="$data"/>
+          <tag line="106" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="112">
+          <name>$url</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="112">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file ConsumerStrategies/CurlConsumer.php</error>
+      <error line="4" code="50000">No DocBlock was found for \ConsumerStrategies_CurlConsumer</error>
+    </parse_markers>
+  </file>
+  <file path="ConsumerStrategies/FileConsumer.php" hash="00e8cb9043bedb4f0831ad6ce0f762f1" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="4" package="Default">
+      <extends>\ConsumerStrategies_AbstractConsumer</extends>
+      <name>ConsumerStrategies_FileConsumer</name>
+      <full_name>\ConsumerStrategies_FileConsumer</full_name>
+      <property final="false" static="false" visibility="private" line="9" namespace="global" package="Default">
+        <name>$_file</name>
+        <default><![CDATA[]]></default>
+        <docblock line="6">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="6" name="var" description="path to a file that we want to write the messages to" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="16" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="12">
+          <description><![CDATA[Creates a new FileConsumer and assigns properties from the $options array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="12" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="16">
+          <name>$options</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="29" package="Default">
+        <name>persist</name>
+        <full_name>persist</full_name>
+        <docblock line="24">
+          <description><![CDATA[Append $batch to a file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="param" description="" type="array" variable="$batch">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="24" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="29">
+          <name>$batch</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file ConsumerStrategies/FileConsumer.php</error>
+      <error line="4" code="50000">No DocBlock was found for \ConsumerStrategies_FileConsumer</error>
+    </parse_markers>
+  </file>
+  <file path="ConsumerStrategies/SocketConsumer.php" hash="2b8d9be76479de9a63c99499f01d5e63" package="Default">
+    <include line="34" type="Require Once" package="Default">
+      <name/>
+      <docblock line="2">
+        <description><![CDATA[Portions of this class were borrowed from
+https://github.com/segmentio/analytics-php/blob/master/lib/Analytics/Consumer/Socket.php.]]></description>
+        <long-description><![CDATA[<p>Thanks for the work!</p>
+
+<p>WWWWWW||WWWWWW
+W W W||W W W
+||
+( OO )__________
+/  |           \
+/o o|    MIT     \
+&#95;__/||_||<strong>||<em>|| *
+|| ||  || ||
+_||</em>|| <em>||</em>||
+(</strong>|<strong>|(</strong>|__|
+(The MIT License)</p>
+
+<p>Copyright (c) 2013 Segment.io Inc. friends@segment.io</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>]]></long-description>
+      </docblock>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="36" package="Default">
+      <extends>\ConsumerStrategies_AbstractConsumer</extends>
+      <name>ConsumerStrategies_SocketConsumer</name>
+      <full_name>\ConsumerStrategies_SocketConsumer</full_name>
+      <property final="false" static="false" visibility="private" line="41" namespace="global" package="Default">
+        <name>$_host</name>
+        <default><![CDATA[]]></default>
+        <docblock line="38">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="38" name="var" description="the host to connect to (e.g. api.mixpanel.com)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="47" namespace="global" package="Default">
+        <name>$_endpoint</name>
+        <default><![CDATA[]]></default>
+        <docblock line="44">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="44" name="var" description="the host-relative endpoint to write to (e.g. /engage)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="53" namespace="global" package="Default">
+        <name>$_timeout</name>
+        <default><![CDATA[]]></default>
+        <docblock line="50">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="var" description="timeout the socket connection timeout in seconds" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="59" namespace="global" package="Default">
+        <name>$_protocol</name>
+        <default><![CDATA[]]></default>
+        <docblock line="56">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="56" name="var" description="the protocol to use for the socket connection" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="65" namespace="global" package="Default">
+        <name>$_socket</name>
+        <default><![CDATA[]]></default>
+        <docblock line="62">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="62" name="var" description="holds the socket resource" type="resource">
+            <type by_reference="false">resource</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="72" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="68">
+          <description><![CDATA[Creates a new SocketConsumer and assigns properties from the $options array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="95" package="Default">
+        <name>persist</name>
+        <full_name>persist</full_name>
+        <docblock line="90">
+          <description><![CDATA[Write using a persistent socket connection.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="90" name="param" description="" type="array" variable="$batch">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="90" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="95">
+          <name>$batch</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="121" package="Default">
+        <name>_getSocket</name>
+        <full_name>_getSocket</full_name>
+        <docblock line="117">
+          <description><![CDATA[Return cached socket if open or create a new persistent socket]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="117" name="return" description="" type="bool|resource">
+            <type by_reference="false">bool</type>
+            <type by_reference="false">resource</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="139" package="Default">
+        <name>_createSocket</name>
+        <full_name>_createSocket</full_name>
+        <argument line="139">
+          <name>$retry</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="162" package="Default">
+        <name>_destroySocket</name>
+        <full_name>_destroySocket</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="176" package="Default">
+        <name>_write</name>
+        <full_name>_write</full_name>
+        <docblock line="169">
+          <description><![CDATA[Write $data through the given $socket]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="169" name="param" description="" type="" variable="$socket"/>
+          <tag line="169" name="param" description="" type="" variable="$data"/>
+          <tag line="169" name="param" description="" type="bool" variable="$retry">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="169" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="176">
+          <name>$socket</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="176">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="176">
+          <name>$retry</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="251" package="Default">
+        <name>handleResponse</name>
+        <full_name>handleResponse</full_name>
+        <docblock line="246">
+          <description><![CDATA[Parse the response from a socket write (only used for debugging)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="246" name="param" description="" type="" variable="$response"/>
+          <tag line="246" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="251">
+          <name>$response</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file ConsumerStrategies/SocketConsumer.php</error>
+      <error line="36" code="50000">No DocBlock was found for \ConsumerStrategies_SocketConsumer</error>
+      <error line="139" code="50010">No DocBlock was found for method _createSocket()</error>
+      <error line="162" code="50010">No DocBlock was found for method _destroySocket()</error>
+    </parse_markers>
+  </file>
+  <file path="Mixpanel.php" hash="3258d820f3002e4176431e083a69dd63" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="4" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="5" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="28" package="Default">
+      <extends>\Base_MixpanelBase</extends>
+      <name>Mixpanel</name>
+      <full_name>\Mixpanel</full_name>
+      <docblock line="7">
+        <description><![CDATA[This is the main class for the Mixpanel PHP Library.]]></description>
+        <long-description><![CDATA[<p>It provides all of the methods you need to track events and
+create/update profiles.</p>
+
+<p>-- Architecture --</p>
+
+<p>This library is built such that all messages are buffered in an in-memory "queue"
+The queue will be automatically flushed at the end of every request. Alternatively, you can call "flush()" manually
+at any time. Flushed messages will be passed to a Consumer's "persist" method. The library comes with a handful of
+Consumers. The "SocketConsumer" is used by default which will send the messages to Mixpanel using a socket.
+You can implement your own custom Consumer to customize how a message is sent to Mixpanel. This can be useful when
+you want to put messages onto a distributed queue (such as ActiveMQ or Kestrel) instead of writing to Mixpanel in
+the user thread.</p>
+
+<p>-- Example --</p>
+
+<p>$mp = Mixpanel::getInstance("MY_TOKEN");</p>
+
+<p>$mp->track("My Event");</p>]]></long-description>
+      </docblock>
+      <property final="false" static="true" visibility="private" line="34" namespace="global" package="Default">
+        <name>$_instance</name>
+        <default><![CDATA[]]></default>
+        <docblock line="30">
+          <description><![CDATA[An instance of the Mixpanel class (for singleton use)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="30" name="var" description="" type="\Mixpanel">
+            <type by_reference="false">\Mixpanel</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="41" namespace="global" package="Default">
+        <name>$people</name>
+        <default><![CDATA[]]></default>
+        <docblock line="37">
+          <description><![CDATA[An instance of the MixpanelPeople class (used to create/update profiles)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="37" name="var" description="" type="\MixpanelPeople">
+            <type by_reference="false">\MixpanelPeople</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="48" namespace="global" package="Default">
+        <name>$_events</name>
+        <default><![CDATA[]]></default>
+        <docblock line="44">
+          <description><![CDATA[An instance of the MixpanelEvents class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="44" name="var" description="" type="\Producers_MixpanelEvents">
+            <type by_reference="false">\Producers_MixpanelEvents</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="56" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="51">
+          <description><![CDATA[Instantiates a new Mixpanel instance]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="51" name="param" description="" type="" variable="$token"/>
+          <tag line="51" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$token</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="69" package="Default">
+        <name>getInstance</name>
+        <full_name>getInstance</full_name>
+        <docblock line="63">
+          <description><![CDATA[Returns a singleton instance of Mixpanel]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="63" name="param" description="" type="" variable="$token"/>
+          <tag line="63" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="63" name="return" description="" type="\Mixpanel">
+            <type by_reference="false">\Mixpanel</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$token</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="69">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="81" package="Default">
+        <name>enqueue</name>
+        <full_name>enqueue</full_name>
+        <docblock line="77">
+          <description><![CDATA[Add an array representing a message to be sent to Mixpanel to the in-memory queue.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="77" name="param" description="" type="array" variable="$message">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="81">
+          <name>$message</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="90" package="Default">
+        <name>enqueueAll</name>
+        <full_name>enqueueAll</full_name>
+        <docblock line="86">
+          <description><![CDATA[Add an array representing a list of messages to be sent to Mixpanel to a queue.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="86" name="param" description="" type="array" variable="$messages">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="90">
+          <name>$messages</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="99" package="Default">
+        <name>flush</name>
+        <full_name>flush</full_name>
+        <docblock line="95">
+          <description><![CDATA[Flush the events queue]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="95" name="param" description="" type="int" variable="$desired_batch_size">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$desired_batch_size</name>
+          <default><![CDATA[50]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="108" package="Default">
+        <name>reset</name>
+        <full_name>reset</full_name>
+        <docblock line="105">
+          <description><![CDATA[Empty the events queue]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="119" package="Default">
+        <name>track</name>
+        <full_name>track</full_name>
+        <docblock line="114">
+          <description><![CDATA[Track an event defined by $event associated with metadata defined by $properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="param" description="" type="string" variable="$event">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="114" name="param" description="" type="array" variable="$properties">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="119">
+          <name>$event</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="119">
+          <name>$properties</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="131" package="Default">
+        <name>register</name>
+        <full_name>register</full_name>
+        <docblock line="125">
+          <description><![CDATA[Register a property to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If the property has already been registered, it will be
+overwritten.</p>]]></long-description>
+          <tag line="125" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="125" name="param" description="" type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="131">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="131">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="142" package="Default">
+        <name>registerAll</name>
+        <full_name>registerAll</full_name>
+        <docblock line="137">
+          <description><![CDATA[Register multiple properties to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If any of the properties have already been registered,
+they will be overwritten.</p>]]></long-description>
+          <tag line="137" name="param" description="" type="array" variable="$props_and_vals">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="142">
+          <name>$props_and_vals</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="154" package="Default">
+        <name>registerOnce</name>
+        <full_name>registerOnce</full_name>
+        <docblock line="148">
+          <description><![CDATA[Register a property to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If the property has already been registered, it will NOT be
+overwritten.</p>]]></long-description>
+          <tag line="148" name="param" description="" type="" variable="$property"/>
+          <tag line="148" name="param" description="" type="" variable="$value"/>
+        </docblock>
+        <argument line="154">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="154">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="165" package="Default">
+        <name>registerAllOnce</name>
+        <full_name>registerAllOnce</full_name>
+        <docblock line="160">
+          <description><![CDATA[Register multiple properties to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If any of the properties have already been registered,
+they will NOT be overwritten.</p>]]></long-description>
+          <tag line="160" name="param" description="" type="array" variable="$props_and_vals">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="165">
+          <name>$props_and_vals</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="175" package="Default">
+        <name>unregister</name>
+        <full_name>unregister</full_name>
+        <docblock line="171">
+          <description><![CDATA[Un-register an property to be sent with every event.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="171" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="175">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="185" package="Default">
+        <name>unregisterAll</name>
+        <full_name>unregisterAll</full_name>
+        <docblock line="181">
+          <description><![CDATA[Un-register a list of properties to be sent with every event.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="181" name="param" description="" type="array" variable="$properties">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="185">
+          <name>$properties</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="196" package="Default">
+        <name>getProperty</name>
+        <full_name>getProperty</full_name>
+        <docblock line="191">
+          <description><![CDATA[Get a property that is set to be sent with every event]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="191" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="191" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="196">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="208" package="Default">
+        <name>createAlias</name>
+        <full_name>createAlias</full_name>
+        <docblock line="202">
+          <description><![CDATA[Alias an existing id with a different unique id.]]></description>
+          <long-description><![CDATA[<p>This is helpful when you want to associate a generated id to
+a username or e-mail address.</p>]]></long-description>
+          <tag line="202" name="param" description="" type="string|int" variable="$original_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="202" name="param" description="" type="string|int" variable="$new_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="208">
+          <name>$original_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="208">
+          <name>$new_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Mixpanel.php</error>
+    </parse_markers>
+  </file>
+  <file path="Producers/MixpanelBaseProducer.php" hash="bfa5ced68ee1df418e74abefc7a5cdd0" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="3" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="4" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="5" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="11" package="Default">
+      <extends>\Base_MixpanelBase</extends>
+      <name>Producers_MixpanelBaseProducer</name>
+      <full_name>\Producers_MixpanelBaseProducer</full_name>
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$_token</name>
+        <default><![CDATA[]]></default>
+        <docblock line="14">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="var" description="a token associated to a Mixpanel project" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="23" namespace="global" package="Default">
+        <name>$_queue</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="20">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="20" name="var" description="a queue to hold messages in memory before flushing in batches" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="29" namespace="global" package="Default">
+        <name>$_consumer</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="26">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="26" name="var" description="the consumer to use when flushing messages" type="\ConsumerStrategies_AbstractConsumer">
+            <type by_reference="false">\ConsumerStrategies_AbstractConsumer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="35" namespace="global" package="Default">
+        <name>$_consumers</name>
+        <default><![CDATA[array("file" => "ConsumerStrategies_FileConsumer", "curl" => "ConsumerStrategies_CurlConsumer", "socket" => "ConsumerStrategies_SocketConsumer")]]></default>
+        <docblock line="32">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="var" description="The list of available consumers" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="46" namespace="global" package="Default">
+        <name>$_max_queue_size</name>
+        <default><![CDATA[1000]]></default>
+        <docblock line="42">
+          <description><![CDATA[If the queue reaches this size we'll auto-flush to prevent out of memory errors]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="42" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="55" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="49">
+          <description><![CDATA[Creates a new MixpanelBaseProducer, assings Mixpanel project token, registers custom Consumers, and instantiates
+the desired consumer]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="param" description="" type="" variable="$token"/>
+          <tag line="49" name="param" description="" type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="55">
+          <name>$token</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="55">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="80" package="Default">
+        <name>__destruct</name>
+        <full_name>__destruct</full_name>
+        <docblock line="77">
+          <description><![CDATA[Flush the queue when we destruct the client with retries]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="99" package="Default">
+        <name>flush</name>
+        <full_name>flush</full_name>
+        <docblock line="94">
+          <description><![CDATA[Iterate the queue and write in batches using the instantiated Consumer Strategy]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="param" description="" type="int" variable="$desired_batch_size">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="94" name="return" description="whether or not the flush was successful" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$desired_batch_size</name>
+          <default><![CDATA[50]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="138" package="Default">
+        <name>reset</name>
+        <full_name>reset</full_name>
+        <docblock line="135">
+          <description><![CDATA[Empties the queue without persisting any of the messages]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="147" package="Default">
+        <name>getQueue</name>
+        <full_name>getQueue</full_name>
+        <docblock line="143">
+          <description><![CDATA[Returns the in-memory queue]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="143" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="155" package="Default">
+        <name>getToken</name>
+        <full_name>getToken</full_name>
+        <docblock line="151">
+          <description><![CDATA[Returns the current Mixpanel project token]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="151" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="164" package="Default">
+        <name>_getConsumer</name>
+        <full_name>_getConsumer</full_name>
+        <docblock line="160">
+          <description><![CDATA[Given a strategy type, return a new PersistenceStrategy object]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="160" name="return" description="" type="\ConsumerStrategies_AbstractConsumer">
+            <type by_reference="false">\ConsumerStrategies_AbstractConsumer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="180" package="Default">
+        <name>enqueue</name>
+        <full_name>enqueue</full_name>
+        <docblock line="176">
+          <description><![CDATA[Add an array representing a message to be sent to Mixpanel to a queue.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="176" name="param" description="" type="array" variable="$message">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="180">
+          <name>$message</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="198" package="Default">
+        <name>enqueueAll</name>
+        <full_name>enqueueAll</full_name>
+        <docblock line="194">
+          <description><![CDATA[Add an array representing a list of messages to be sent to Mixpanel to a queue.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="194" name="param" description="" type="array" variable="$messages">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="198">
+          <name>$messages</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="211" package="Default">
+        <name>_persist</name>
+        <full_name>_persist</full_name>
+        <docblock line="206">
+          <description><![CDATA[Given an array of messages, persist it with the instantiated Persistence Strategy]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="206" name="param" description="" type="" variable="$message"/>
+          <tag line="206" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="211">
+          <name>$message</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="global" line="222" package="Default">
+        <name>_getEndpoint</name>
+        <full_name>_getEndpoint</full_name>
+        <docblock line="218">
+          <description><![CDATA[Return the endpoint that should be used by a consumer that consumes messages produced by this producer.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="218" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Producers/MixpanelBaseProducer.php</error>
+      <error line="11" code="50000">No DocBlock was found for \Producers_MixpanelBaseProducer</error>
+    </parse_markers>
+  </file>
+  <file path="Producers/MixpanelEvents.php" hash="98db7f8c412625f821befa79db867974" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="3" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="6" package="Default">
+      <extends>\Producers_MixpanelBaseProducer</extends>
+      <name>Producers_MixpanelEvents</name>
+      <full_name>\Producers_MixpanelEvents</full_name>
+      <property final="false" static="false" visibility="private" line="12" namespace="global" package="Default">
+        <name>$_super_properties</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="8">
+          <description><![CDATA[An array of properties to attach to every tracked event]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="8" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="20" package="Default">
+        <name>track</name>
+        <full_name>track</full_name>
+        <docblock line="15">
+          <description><![CDATA[Track an event defined by $event associated with metadata defined by $properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="15" name="param" description="" type="string" variable="$event">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="15" name="param" description="" type="array" variable="$properties">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="20">
+          <name>$event</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="20">
+          <name>$properties</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="41" package="Default">
+        <name>register</name>
+        <full_name>register</full_name>
+        <docblock line="35">
+          <description><![CDATA[Register a property to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If the property has already been registered, it will be
+overwritten.</p>]]></long-description>
+          <tag line="35" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="35" name="param" description="" type="mixed" variable="$value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="41">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="41">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="51" package="Default">
+        <name>registerAll</name>
+        <full_name>registerAll</full_name>
+        <docblock line="46">
+          <description><![CDATA[Register multiple properties to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If any of the properties have already been registered,
+they will be overwritten.</p>]]></long-description>
+          <tag line="46" name="param" description="" type="array" variable="$props_and_vals">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="51">
+          <name>$props_and_vals</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="64" package="Default">
+        <name>registerOnce</name>
+        <full_name>registerOnce</full_name>
+        <docblock line="58">
+          <description><![CDATA[Register a property to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If the property has already been registered, it will NOT be
+overwritten.</p>]]></long-description>
+          <tag line="58" name="param" description="" type="" variable="$property"/>
+          <tag line="58" name="param" description="" type="" variable="$value"/>
+        </docblock>
+        <argument line="64">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="64">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="76" package="Default">
+        <name>registerAllOnce</name>
+        <full_name>registerAllOnce</full_name>
+        <docblock line="71">
+          <description><![CDATA[Register multiple properties to be sent with every event.]]></description>
+          <long-description><![CDATA[<p>If any of the properties have already been registered,
+they will NOT be overwritten.</p>]]></long-description>
+          <tag line="71" name="param" description="" type="array" variable="$props_and_vals">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="76">
+          <name>$props_and_vals</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="89" package="Default">
+        <name>unregister</name>
+        <full_name>unregister</full_name>
+        <docblock line="85">
+          <description><![CDATA[Un-register an property to be sent with every event.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="85" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="89">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="98" package="Default">
+        <name>unregisterAll</name>
+        <full_name>unregisterAll</full_name>
+        <docblock line="94">
+          <description><![CDATA[Un-register a list of properties to be sent with every event.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="param" description="" type="array" variable="$properties">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="98">
+          <name>$properties</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="110" package="Default">
+        <name>getProperty</name>
+        <full_name>getProperty</full_name>
+        <docblock line="105">
+          <description><![CDATA[Get a property that is set to be sent with every event]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="105" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="105" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="110">
+          <name>$property</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="121" package="Default">
+        <name>createAlias</name>
+        <full_name>createAlias</full_name>
+        <docblock line="115">
+          <description><![CDATA[Alias an existing id with a different unique id.]]></description>
+          <long-description><![CDATA[<p>This is helpful when you want to associate a generated id to
+a username or e-mail address.</p>]]></long-description>
+          <tag line="115" name="param" description="" type="string|int" variable="$original_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="115" name="param" description="" type="string|int" variable="$new_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="121">
+          <name>$original_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="121">
+          <name>$new_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="133" package="Default">
+        <name>_getEndpoint</name>
+        <full_name>_getEndpoint</full_name>
+        <docblock line="129">
+          <description><![CDATA[Returns the "events" endpoint]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="129" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Producers/MixpanelEvents.php</error>
+      <error line="6" code="50000">No DocBlock was found for \Producers_MixpanelEvents</error>
+    </parse_markers>
+  </file>
+  <file path="Producers/MixpanelPeople.php" hash="d3bdab4ac3c1266a8415ac4cca6f0d97" package="Default">
+    <include line="2" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="global" line="4" package="Default">
+      <extends>\Producers_MixpanelBaseProducer</extends>
+      <name>Producers_MixpanelPeople</name>
+      <full_name>\Producers_MixpanelPeople</full_name>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="14" package="Default">
+        <name>_constructPayload</name>
+        <full_name>_constructPayload</full_name>
+        <docblock line="6">
+          <description><![CDATA[Internal method to prepare a message given the message data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="6" name="param" description="" type="" variable="$distinct_id"/>
+          <tag line="6" name="param" description="" type="" variable="$operation"/>
+          <tag line="6" name="param" description="" type="" variable="$value"/>
+          <tag line="6" name="param" description="" type="null" variable="$ip">
+            <type by_reference="false">null</type>
+          </tag>
+          <tag line="6" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="14">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="14">
+          <name>$operation</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="14">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="14">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="31" package="Default">
+        <name>set</name>
+        <full_name>set</full_name>
+        <docblock line="24">
+          <description><![CDATA[Set properties on a user record.]]></description>
+          <long-description><![CDATA[<p>If the profile does not exist, it creates it with these properties.
+If it does exist, it sets the properties to these values, overwriting existing values.</p>]]></long-description>
+          <tag line="24" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="24" name="param" description="associative array of properties to set on the profile" type="array" variable="$props">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="24" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="31">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="31">
+          <name>$props</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="31">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="43" package="Default">
+        <name>setOnce</name>
+        <full_name>setOnce</full_name>
+        <docblock line="36">
+          <description><![CDATA[Set properties on a user record.]]></description>
+          <long-description><![CDATA[<p>If the profile does not exist, it creates it with these properties.
+If it does exist, it sets the properties to these values but WILL NOT overwrite existing values.</p>]]></long-description>
+          <tag line="36" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="36" name="param" description="associative array of properties to set on the profile" type="array" variable="$props">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="36" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="43">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="43">
+          <name>$props</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="43">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="56" package="Default">
+        <name>increment</name>
+        <full_name>increment</full_name>
+        <docblock line="48">
+          <description><![CDATA[Increments the value of a property on a user record.]]></description>
+          <long-description><![CDATA[<p>If the profile does not exist, it creates it and sets the
+property to the increment value.</p>]]></long-description>
+          <tag line="48" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="48" name="param" description="string the property to increment" type="\$prop" variable="$prop">
+            <type by_reference="false">\$prop</type>
+          </tag>
+          <tag line="48" name="param" description="the amount to increment the property by" type="int" variable="$val">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="48" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$prop</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$val</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="69" package="Default">
+        <name>append</name>
+        <full_name>append</full_name>
+        <docblock line="61">
+          <description><![CDATA[Adds $val to a list located at $prop.]]></description>
+          <long-description><![CDATA[<p>If the property does not exist, it will be created. If $val is a string
+and the list is empty or does not exist, a new list with one value will be created.</p>]]></long-description>
+          <tag line="61" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="61" name="param" description="the property that holds the list" type="string" variable="$prop">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="61" name="param" description="items to add to the list" type="string|array" variable="$val">
+            <type by_reference="false">string</type>
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="61" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="69">
+          <name>$prop</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="69">
+          <name>$val</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="69">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="82" package="Default">
+        <name>trackCharge</name>
+        <full_name>trackCharge</full_name>
+        <docblock line="75">
+          <description><![CDATA[Adds a transaction to the user's profile for revenue tracking]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="75" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="75" name="param" description="the transaction amount e.g. &quot;20.50&quot;" type="string" variable="$amount">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="75" name="param" description="the timestamp of when the transaction occurred (default to current timestamp)" type="null" variable="$timestamp">
+            <type by_reference="false">null</type>
+          </tag>
+          <tag line="75" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$amount</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$timestamp</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="99" package="Default">
+        <name>clearCharges</name>
+        <full_name>clearCharges</full_name>
+        <docblock line="94">
+          <description><![CDATA[Clear all transactions stored on a user's profile]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="94" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="99">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="109" package="Default">
+        <name>deleteUser</name>
+        <full_name>deleteUser</full_name>
+        <docblock line="104">
+          <description><![CDATA[Delete this profile from Mixpanel]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="104" name="param" description="the distinct_id or alias of a user" type="string|int" variable="$distinct_id">
+            <type by_reference="false">string</type>
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="104" name="param" description="the ip address of the client (used for geo-location)" type="string|null" variable="$ip">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="109">
+          <name>$distinct_id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="109">
+          <name>$ip</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="118" package="Default">
+        <name>_getEndpoint</name>
+        <full_name>_getEndpoint</full_name>
+        <docblock line="114">
+          <description><![CDATA[Returns the "engage" endpoint]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file Producers/MixpanelPeople.php</error>
+      <error line="4" code="50000">No DocBlock was found for \Producers_MixpanelPeople</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MixpanelEvents</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MixpanelEvents</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class MixpanelBase</p>
+<p class="description"><p>This a base class which all Mixpanel classes extend from to provide some very basic  debugging and logging functionality. It also serves to persist $_options across the library.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_base---MixpanelEvents.php.html">/base/MixpanelEvents.php</a> (line <span class="field">6</span>)
+		</p>
+		
+				
+		<pre><a href="../Mixpanel-Base/MixpanelBase.html">MixpanelBase</a>
+   |
+   --<a href="../Mixpanel-Base/MixpanelBaseProducer.html">MixpanelBaseProducer</a>
+      |
+      --MixpanelEvents</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createAlias" title="details" class="method-name">createAlias</a>
+											(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$original_id</span>, <span class="var-type">string|int</span>&nbsp;<span class="var-name">$new_id</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getProperty" title="details" class="method-name">getProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#register" title="details" class="method-name">register</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerAll" title="details" class="method-name">registerAll</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$props_and_vals</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerAllOnce" title="details" class="method-name">registerAllOnce</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$props_and_vals</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#registerOnce" title="details" class="method-name">registerOnce</a>
+											(<span class="var-type">$property</span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">$value</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#track" title="details" class="method-name">track</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$event</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#unregister" title="details" class="method-name">unregister</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#unregisterAll" title="details" class="method-name">unregisterAll</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#_getEndpoint" title="details" class="method-name">_getEndpoint</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../Mixpanel-Base/MixpanelBaseProducer.html">MixpanelBaseProducer</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#var$_max_queue_size">MixpanelBaseProducer::$_max_queue_size</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#var$_token">MixpanelBaseProducer::$_token</a></span><br>
+							</span>
+											</blockquote> 
+									<p>Inherited from <span class="classname"><a href="../Mixpanel-Base/MixpanelBase.html">MixpanelBase</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Mixpanel-Base/MixpanelBase.html#var$_options">MixpanelBase::$_options</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodcreateAlias" id="createAlias"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createAlias</span> (line <span class="line-number">121</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Alias an existing id with a different unique id. This is helpful when you want to associate a generated id to  a username or e-mail address.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createAlias
+		</span>
+					(<span class="var-type">string|int</span>&nbsp;<span class="var-name">$original_id</span>, <span class="var-type">string|int</span>&nbsp;<span class="var-name">$new_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|int</span>
+				<span class="var-name">$original_id</span>			</li>
+					<li>
+				<span class="var-type">string|int</span>
+				<span class="var-name">$new_id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetProperty" id="getProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProperty</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a property that is set to be sent with every event</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregister" id="register"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">register</span> (line <span class="line-number">41</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register a property to be sent with every event. If the property has already been registered, it will be  overwritten.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			register
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregisterAll" id="registerAll"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerAll</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register multiple properties to be sent with every event. If any of the properties have already been registered,  they will be overwritten.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerAll
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$props_and_vals</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$props_and_vals</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregisterAllOnce" id="registerAllOnce"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerAllOnce</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register multiple properties to be sent with every event. If any of the properties have already been registered,  they will NOT be overwritten.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerAllOnce
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$props_and_vals</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$props_and_vals</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodregisterOnce" id="registerOnce"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">registerOnce</span> (line <span class="line-number">64</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Register a property to be sent with every event. If the property has already been registered, it will NOT be  overwritten.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			registerOnce
+		</span>
+					(<span class="var-type">$property</span>&nbsp;<span class="var-name">$property</span>, <span class="var-type">$value</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$property</span>
+				<span class="var-name">$property</span>			</li>
+					<li>
+				<span class="var-type">$value</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtrack" id="track"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">track</span> (line <span class="line-number">20</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Track an event defined by $event associated with metadata defined by $properties</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			track
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$event</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$event</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$properties</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodunregister" id="unregister"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">unregister</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Un-register an property to be sent with every event.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			unregister
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodunregisterAll" id="unregisterAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">unregisterAll</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Un-register a list of properties to be sent with every event.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			unregisterAll
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$properties</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$properties</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getEndpoint" id="_getEndpoint"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getEndpoint</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the &quot;events&quot; endpoint</p>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			_getEndpoint
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method_getEndpoint">MixpanelBaseProducer::_getEndpoint()</a></dt>
+						<dd>Return the endpoint that should be used by a consumer that consumes messages produced by this producer.</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Mixpanel-Base/MixpanelBaseProducer.html">MixpanelBaseProducer</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method__construct">MixpanelBaseProducer::__construct()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodenqueue">MixpanelBaseProducer::enqueue()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodenqueueAll">MixpanelBaseProducer::enqueueAll()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodflush">MixpanelBaseProducer::flush()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodgetQueue">MixpanelBaseProducer::getQueue()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodgetToken">MixpanelBaseProducer::getToken()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#methodreset">MixpanelBaseProducer::reset()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method_getConsumer">MixpanelBaseProducer::_getConsumer()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method_getEndpoint">MixpanelBaseProducer::_getEndpoint()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method_persist">MixpanelBaseProducer::_persist()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBaseProducer.html#method__destruct">MixpanelBaseProducer::__destruct()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Mixpanel-Base/MixpanelBase.html">MixpanelBase</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBase.html#method__construct">MixpanelBase::__construct()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBase.html#method_debug">MixpanelBase::_debug()</a></span><br>
+													<span class="method-name"><a href="../Mixpanel-Base/MixpanelBase.html#method_log">MixpanelBase::_log()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 20 Jun 2013 12:45:43 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.5.0a1</a>
+	</p>
+	</div></body>
+</html>

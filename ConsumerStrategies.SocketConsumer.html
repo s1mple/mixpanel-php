@@ -1,0 +1,709 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview({
+              animated: "fast",
+              collapsed: true,
+              persist: "cookie"
+            });
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div id="maincontainer"><div id="header"><h1>
+                phpDocumentor
+              <img src="images/top-stopper.png"></img></h1></div><ul xmlns="" id="menu">
+<li><a href="graph.html">Class diagram</a></li>
+<li><a href="markers.html">TODO / Markers</a></li>
+<li><a href="parse_markers.html">Errors</a></li>
+</ul>
+<div id="content_container"><div xmlns="" id="content">
+<h1>ConsumerStrategies/SocketConsumer.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<a name="includes"></a><h2>Includes</h2> <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ConsumerStrategies_SocketConsumer" class="class">
+<h3>ConsumerStrategies_SocketConsumer</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="ConsumerStrategies.AbstractConsumer.html#%5CConsumerStrategies_AbstractConsumer">\ConsumerStrategies_AbstractConsumer</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Class MixpanelBase</em><br><p>This a base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality. It also serves to persist $_options across the library.</p><br><div id="methods_ConsumerStrategies_SocketConsumer">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_createSocket()">_createSocket</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_debug()">_debug</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_destroySocket()">_destroySocket</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_encode()">_encode</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_getSocket()">_getSocket</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_handleError()">_handleError</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_log()">_log</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::_write()">_write</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::handleResponse()">handleResponse</a>,
+      <a style="font-style: italic;" href="#ConsumerStrategies_SocketConsumer::persist()">persist</a>,
+      <div class="method">
+<a id="ConsumerStrategies_SocketConsumer::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          array
+             
+            $options
+            = array(),
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Creates a new SocketConsumer and assigns properties from the $options array</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$options</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td>array()</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_createSocket()"></a><h3>_createSocket<span class="nb-faded-text">(
+          
+             
+            $retry
+            = true,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$retry</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>true</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_debug()"></a><h3>_debug<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Returns true if in debug mode, false if in production mode</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>inherited_from</td>
+<td><a href="base.MixpanelBase.html#%5CMixpanelBase::_debug()"><small>\MixpanelBase::_debug()</small></a></td>
+</tr>
+<tr>
+<td>inherited_from</td>
+<td><a href="ConsumerStrategies.AbstractConsumer.html#%5CConsumerStrategies_AbstractConsumer::_debug()"><small>\ConsumerStrategies_AbstractConsumer::_debug()</small></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_destroySocket()"></a><h3>_destroySocket<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_encode()"></a><h3>_encode<span class="nb-faded-text">(
+          array
+             
+            $params,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Encode an array to be persisted</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$params</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>inherited_from</td>
+<td><a href="ConsumerStrategies.AbstractConsumer.html#%5CConsumerStrategies_AbstractConsumer::_encode()"><small>\ConsumerStrategies_AbstractConsumer::_encode()</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_getSocket()"></a><h3>_getSocket<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool|resource</span>
+</h3>
+<h4>Description</h4>
+<em>Return cached socket if open or create a new persistent socket</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool|resource</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_handleError()"></a><h3>_handleError<span class="nb-faded-text">(
+          
+             
+            $code,
+          
+             
+            $msg,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Handles errors that occur in a consumer</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$code</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$msg</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>inherited_from</td>
+<td><a href="ConsumerStrategies.AbstractConsumer.html#%5CConsumerStrategies_AbstractConsumer::_handleError()"><small>\ConsumerStrategies_AbstractConsumer::_handleError()</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_log()"></a><h3>_log<span class="nb-faded-text">(
+          
+             
+            $msg,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Log a message to PHP's error log</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$msg</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>inherited_from</td>
+<td><a href="base.MixpanelBase.html#%5CMixpanelBase::_log()"><small>\MixpanelBase::_log()</small></a></td>
+</tr>
+<tr>
+<td>inherited_from</td>
+<td><a href="ConsumerStrategies.AbstractConsumer.html#%5CConsumerStrategies_AbstractConsumer::_log()"><small>\ConsumerStrategies_AbstractConsumer::_log()</small></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::_write()"></a><h3>_write<span class="nb-faded-text">(
+          
+             
+            $socket,
+          
+             
+            $data,
+          bool
+             
+            $retry
+            = true,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Write $data through the given $socket</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$socket</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$data</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$retry</td>
+<td style="white-space: normal;">bool</td>
+<td></td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::handleResponse()"></a><h3>handleResponse<span class="nb-faded-text">(
+          
+             
+            $response,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Parse the response from a socket write (only used for debugging)</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$response</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::persist()"></a><h3>persist<span class="nb-faded-text">(
+          array
+             
+            $batch,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Write using a persistent socket connection.</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$batch</td>
+<td style="white-space: normal;">array</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ConsumerStrategies_SocketConsumer">
+<h4>Properties</h4>
+<a href="#ConsumerStrategies_SocketConsumer::%24_defaults">$_defaults</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_endpoint">$_endpoint</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_host">$_host</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_options">$_options</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_protocol">$_protocol</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_socket">$_socket</a>,
+      <a href="#ConsumerStrategies_SocketConsumer::%24_timeout">$_timeout</a>,
+      <div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_defaults"></a><h3>
+<span class="nb-faded-text">array 
+          private 
+          </span>$_defaults
+          =
+          array("max_batch_size" =&gt; 50, "max_queue_size" =&gt; 1000, "debug" =&gt; false, "consumer" =&gt; "socket", "host" =&gt; "api.mixpanel.com", "events_endpoint" =&gt; "/track", "people_endpoint" =&gt; "/engage", "use_ssl" =&gt; true, "error_callback" =&gt; null)</h3>
+<em>Default options that can be overridden via the $options constructor arg</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_endpoint"></a><h3>
+<span class="nb-faded-text">string 
+          private 
+          </span>$_endpoint
+          =
+          </h3>
+<em><p>the host-relative endpoint to write to (e.g. /engage)</p>
+</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_host"></a><h3>
+<span class="nb-faded-text">string 
+          private 
+          </span>$_host
+          =
+          </h3>
+<em><p>the host to connect to (e.g. api.mixpanel.com)</p>
+</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_options"></a><h3>
+<span class="nb-faded-text">array 
+          protected 
+          </span>$_options
+          =
+          array()</h3>
+<em>An array of options to be used by the Mixpanel library.</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_protocol"></a><h3>
+<span class="nb-faded-text">string 
+          private 
+          </span>$_protocol
+          =
+          </h3>
+<em><p>the protocol to use for the socket connection</p></em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_socket"></a><h3>
+<span class="nb-faded-text">resource 
+          private 
+          </span>$_socket
+          =
+          </h3>
+<em><p>holds the socket resource</p></em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="ConsumerStrategies_SocketConsumer::$_timeout"></a><h3>
+<span class="nb-faded-text">int 
+          private 
+          </span>$_timeout
+          =
+          </h3>
+<em><p>timeout the socket connection timeout in seconds</p></em><br><small></small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://www.phpdoc.org">phpDocumentor 2.0.0a12</a>.</small></div><div id="index"><div class="padder"><script xmlns="" type="text/javascript">
+      $(function() {
+
+        var is_chrome = /chrome/.test( navigator.userAgent.toLowerCase() );
+        var is_local = /file:\/\//.test(document.location.href);
+        if (is_chrome && is_local)
+        {
+          // search is disabled on chrome with local files due to http://code.google.com/p/chromium/issues/detail?id=40787
+          return;
+        }
+
+        $("#search_box").show();
+        var search_index = {};
+        $.ajax({
+          url: "search_index.xml",
+          dataType: ($.browser.msie) ? "text" : "xml",
+          error: function(data) {
+            alert('An error occurred using the search data');
+          },
+          success: function( data ) {
+            var xml;
+            if (typeof data == "string") {
+              xml = new ActiveXObject("Microsoft.XMLDOM");
+              xml.async = false;
+              xml.loadXML(data);
+            } else {
+              xml = data;
+            }
+
+            search_index = $("node", xml).map(function() {
+              type = $("type", this).text();
+              return {
+                value: $("value", this).text(),
+                label: '<img src="images/icons/'+type+'.png" align="absmiddle">'+$("value", this).text(),
+                id: $("id", this).text(),
+              };
+            }).get();
+
+            $("#search_box").autocomplete({
+              source: search_index,
+              select: function(event, ui) {
+                // redirect to the documentation
+                if ((parent) && (parent.content))
+                {
+                  parent.content.document.location = ''+ui.item.id;
+                }
+                else
+                {
+                  jQuery(document).location = ''+ui.item.id;
+                }
+                applySearchHash();
+              }
+            });
+          }
+        });
+      });
+    </script><input id="search_box"></input><div class="section">
+<h1>Namespaces</h1>
+<ul id="namespaces-" class="filetree"><li class="closed">
+<span class="folder">global</span><ul>
+<li><span class="class"><a href="ConsumerStrategies.AbstractConsumer.html#ConsumerStrategies_AbstractConsumer">ConsumerStrategies_AbstractConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.CurlConsumer.html#ConsumerStrategies_CurlConsumer">ConsumerStrategies_CurlConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.FileConsumer.html#ConsumerStrategies_FileConsumer">ConsumerStrategies_FileConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="ConsumerStrategies.SocketConsumer.html#ConsumerStrategies_SocketConsumer">ConsumerStrategies_SocketConsumer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="Mixpanel.html#Mixpanel">Mixpanel</a><br><small>This is the main class for the Mixpanel PHP Library.</small></span></li>
+<li><span class="class"><a href="base.MixpanelBase.html#MixpanelBase">MixpanelBase</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelBaseProducer.html#MixpanelBaseProducer">MixpanelBaseProducer</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelEvents.html#MixpanelEvents">MixpanelEvents</a><br><small>Class MixpanelBase</small></span></li>
+<li><span class="class"><a href="producers.MixpanelPeople.html#MixpanelPeopleProducer">MixpanelPeopleProducer</a><br><small>Class MixpanelBase</small></span></li>
+</ul>
+</li></ul>
+</div><div class="section">
+<h1>Packages</h1>
+<ul id="packages-" class="filetree">
+<li class="closed">
+<span class="folder">Default</span><ul id="packages_Default" class="filetree"></ul>
+</li>
+<li class="closed">
+<span class="folder">Mixpanel</span><ul id="packages_Mixpanel" class="filetree"></ul>
+</li>
+</ul>
+</div>
+</div></div><div id="footer"><div class="padder"></div></div></div></body></html>

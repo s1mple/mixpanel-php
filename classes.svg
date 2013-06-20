@@ -23,9 +23,10 @@
 </g>
 <!-- \\ConsumerStrategies_AbstractConsumer -->
 <g id="node2" class="node"><title>\\ConsumerStrategies_AbstractConsumer</title>
-<g id="a_node2"><a xlink:href="ConsumerStrategies.AbstractConsumer.html" xlink:title="ConsumerStrategies_AbstractConsumer" target="_parent">
-<polygon fill="none" stroke="black" points="463.538,-214 216.462,-214 216.462,-178 463.538,-178 463.538,-214"/>
-<text text-anchor="middle" x="340" y="-191.6" font-family="Courier,monospace" font-size="11.00">ConsumerStrategies_AbstractConsumer</text>
+<g id="a_node2"><a xlink:href="ConsumerStrategies.AbstractConsumer.html" xlink:title="«abstract»&lt;br/&gt;ConsumerStrategies_AbstractConsumer" target="_parent">
+<polygon fill="none" stroke="black" points="464,-214 216,-214 216,-178 464,-178 464,-214"/>
+<text text-anchor="start" x="307" y="-197.5" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="224.5" y="-186.5" font-family="Courier,monospace" font-size="11.00">ConsumerStrategies_AbstractConsumer</text>
 </a>
 </g>
 </g>
@@ -57,8 +58,8 @@
 </g>
 <!-- \\ConsumerStrategies_FileConsumer&#45;&gt;\\ConsumerStrategies_AbstractConsumer -->
 <g id="edge3" class="edge"><title>\\ConsumerStrategies_FileConsumer&#45;&gt;\\ConsumerStrategies_AbstractConsumer</title>
-<path fill="none" stroke="black" d="M542.79,-196C520.531,-196 496.879,-196 473.9,-196"/>
-<polygon fill="none" stroke="black" points="473.75,-192.5 463.75,-196 473.75,-199.5 473.75,-192.5"/>
+<path fill="none" stroke="black" d="M542.79,-196C520.607,-196 497.041,-196 474.136,-196"/>
+<polygon fill="none" stroke="black" points="474.018,-192.5 464.018,-196 474.018,-199.5 474.018,-192.5"/>
 </g>
 <!-- \\ConsumerStrategies_SocketConsumer -->
 <g id="node5" class="node"><title>\\ConsumerStrategies_SocketConsumer</title>
@@ -88,9 +89,10 @@
 </g>
 <!-- \\Producers_MixpanelBaseProducer -->
 <g id="node7" class="node"><title>\\Producers_MixpanelBaseProducer</title>
-<g id="a_node7"><a xlink:href="Producers.MixpanelBaseProducer.html" xlink:title="Producers_MixpanelBaseProducer" target="_parent">
-<polygon fill="none" stroke="black" points="447.032,-106 232.968,-106 232.968,-70 447.032,-70 447.032,-106"/>
-<text text-anchor="middle" x="340" y="-83.6" font-family="Courier,monospace" font-size="11.00">Producers_MixpanelBaseProducer</text>
+<g id="a_node7"><a xlink:href="Producers.MixpanelBaseProducer.html" xlink:title="«abstract»&lt;br/&gt;Producers_MixpanelBaseProducer" target="_parent">
+<polygon fill="none" stroke="black" points="447.5,-106 232.5,-106 232.5,-70 447.5,-70 447.5,-106"/>
+<text text-anchor="start" x="307" y="-89.5" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="241" y="-78.5" font-family="Courier,monospace" font-size="11.00">Producers_MixpanelBaseProducer</text>
 </a>
 </g>
 </g>
@@ -109,8 +111,8 @@
 </g>
 <!-- \\Producers_MixpanelEvents&#45;&gt;\\Producers_MixpanelBaseProducer -->
 <g id="edge7" class="edge"><title>\\Producers_MixpanelEvents&#45;&gt;\\Producers_MixpanelBaseProducer</title>
-<path fill="none" stroke="black" d="M565.782,-88C532.18,-88 493.152,-88 457.139,-88"/>
-<polygon fill="none" stroke="black" points="457.068,-84.5001 447.068,-88 457.068,-91.5001 457.068,-84.5001"/>
+<path fill="none" stroke="black" d="M565.782,-88C532.344,-88 493.533,-88 457.667,-88"/>
+<polygon fill="none" stroke="black" points="457.636,-84.5001 447.636,-88 457.636,-91.5001 457.636,-84.5001"/>
 </g>
 <!-- \\Producers_MixpanelPeople -->
 <g id="node9" class="node"><title>\\Producers_MixpanelPeople</title>

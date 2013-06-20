@@ -1,9 +1,9 @@
-<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » global</title>
+<title>Mixpanel PHP API Reference » global</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Mixpanel PHP API Reference</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -28,7 +28,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">18</span></a></li>
+                <span class="label label-info">9</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -67,66 +67,68 @@
 <div class="namespace-indent">
 <h3>
 <i class="icon-custom icon-class"></i> Classes and interfaces</h3>
-<a name="Base_MixpanelBase" id="Base_MixpanelBase"></a><div class="element ajax clickable class" href="../classes/Base_MixpanelBase.html">
+<div id="Base_MixpanelBase" class="element ajax clickable class">
 <h1>Base_MixpanelBase<a href="../classes/Base_MixpanelBase.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">This a Base class which all Mixpanel classes extend from to provide some very basic
+debugging and logging functionality.</p>
 <div class="details collapse"></div>
 <a href="../classes/Base_MixpanelBase.html" class="more">« More »</a>
 </div>
-<a name="ConsumerStrategies_AbstractConsumer" id="ConsumerStrategies_AbstractConsumer"></a><div class="element ajax clickable class" href="../classes/ConsumerStrategies_AbstractConsumer.html">
+<div id="ConsumerStrategies_AbstractConsumer" class="element ajax clickable class">
 <h1>ConsumerStrategies_AbstractConsumer<a href="../classes/ConsumerStrategies_AbstractConsumer.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Provides some base methods for use by a Consumer implementation</p>
 <div class="details collapse"></div>
 <a href="../classes/ConsumerStrategies_AbstractConsumer.html" class="more">« More »</a>
 </div>
-<a name="ConsumerStrategies_CurlConsumer" id="ConsumerStrategies_CurlConsumer"></a><div class="element ajax clickable class" href="../classes/ConsumerStrategies_CurlConsumer.html">
+<div id="ConsumerStrategies_CurlConsumer" class="element ajax clickable class">
 <h1>ConsumerStrategies_CurlConsumer<a href="../classes/ConsumerStrategies_CurlConsumer.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Consumes messages and sends them to a host/endpoint using cURL</p>
 <div class="details collapse"></div>
 <a href="../classes/ConsumerStrategies_CurlConsumer.html" class="more">« More »</a>
 </div>
-<a name="ConsumerStrategies_FileConsumer" id="ConsumerStrategies_FileConsumer"></a><div class="element ajax clickable class" href="../classes/ConsumerStrategies_FileConsumer.html">
+<div id="ConsumerStrategies_FileConsumer" class="element ajax clickable class">
 <h1>ConsumerStrategies_FileConsumer<a href="../classes/ConsumerStrategies_FileConsumer.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Consumes messages and writes them to a file</p>
 <div class="details collapse"></div>
 <a href="../classes/ConsumerStrategies_FileConsumer.html" class="more">« More »</a>
 </div>
-<a name="ConsumerStrategies_SocketConsumer" id="ConsumerStrategies_SocketConsumer"></a><div class="element ajax clickable class" href="../classes/ConsumerStrategies_SocketConsumer.html">
+<div id="ConsumerStrategies_SocketConsumer" class="element ajax clickable class">
 <h1>ConsumerStrategies_SocketConsumer<a href="../classes/ConsumerStrategies_SocketConsumer.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Consumes messages and writes them to host/endpoint using a persistent socket</p>
 <div class="details collapse"></div>
 <a href="../classes/ConsumerStrategies_SocketConsumer.html" class="more">« More »</a>
 </div>
-<a name="Mixpanel" id="Mixpanel"></a><div class="element ajax clickable class" href="../classes/Mixpanel.html">
+<div id="Mixpanel" class="element ajax clickable class">
 <h1>Mixpanel<a href="../classes/Mixpanel.html">¶</a>
 </h1>
-<p class="short_description">This is the main class for the Mixpanel PHP Library.</p>
+<p class="short_description">This is the main class for the Mixpanel PHP Library which provides all of the methods you need to track events and
+create/update profiles.</p>
 <div class="details collapse"></div>
 <a href="../classes/Mixpanel.html" class="more">« More »</a>
 </div>
-<a name="Producers_MixpanelBaseProducer" id="Producers_MixpanelBaseProducer"></a><div class="element ajax clickable class" href="../classes/Producers_MixpanelBaseProducer.html">
+<div id="Producers_MixpanelBaseProducer" class="element ajax clickable class">
 <h1>Producers_MixpanelBaseProducer<a href="../classes/Producers_MixpanelBaseProducer.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Provides some base methods for use by a message Producer</p>
 <div class="details collapse"></div>
 <a href="../classes/Producers_MixpanelBaseProducer.html" class="more">« More »</a>
 </div>
-<a name="Producers_MixpanelEvents" id="Producers_MixpanelEvents"></a><div class="element ajax clickable class" href="../classes/Producers_MixpanelEvents.html">
+<div id="Producers_MixpanelEvents" class="element ajax clickable class">
 <h1>Producers_MixpanelEvents<a href="../classes/Producers_MixpanelEvents.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Provides an API to track events on Mixpanel</p>
 <div class="details collapse"></div>
 <a href="../classes/Producers_MixpanelEvents.html" class="more">« More »</a>
 </div>
-<a name="Producers_MixpanelPeople" id="Producers_MixpanelPeople"></a><div class="element ajax clickable class" href="../classes/Producers_MixpanelPeople.html">
+<div id="Producers_MixpanelPeople" class="element ajax clickable class">
 <h1>Producers_MixpanelPeople<a href="../classes/Producers_MixpanelPeople.html">¶</a>
 </h1>
-<p class="short_description">Class MixpanelBase</p>
+<p class="short_description">Provides an API to create/update profiles on Mixpanel</p>
 <div class="details collapse"></div>
 <a href="../classes/Producers_MixpanelPeople.html" class="more">« More »</a>
 </div>
@@ -135,8 +137,8 @@
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
-            generated on 2013-06-20T13:02:26-07:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-06-20T14:19:58-07:00.<br></footer></div>
 </div>
 </body>
 </html>

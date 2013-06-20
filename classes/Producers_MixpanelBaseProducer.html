@@ -1,9 +1,9 @@
-<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \Producers_MixpanelBaseProducer</title>
+<title>Mixpanel PHP API Reference » \Producers_MixpanelBaseProducer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Mixpanel PHP API Reference</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -28,7 +28,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">18</span></a></li>
+                <span class="label label-info">9</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -51,38 +51,52 @@
 </div>
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#__construct" title="__construct :: Creates a new MixpanelBaseProducer, assings Mixpanel project token, registers custom Consumers, and instantiates
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Creates a new MixpanelBaseProducer, assings Mixpanel project token, registers custom Consumers, and instantiates
 the desired consumer"><span class="description">Creates a new MixpanelBaseProducer, assings Mixpanel project token, registers custom Consumers, and instantiates
 the desired consumer</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#__destruct" title="__destruct :: Flush the queue when we destruct the client with retries"><span class="description">Flush the queue when we destruct the client with retries</span><pre>__destruct()</pre></a></li>
-<li class="method public "><a href="#_getEndpoint" title="_getEndpoint :: Return the endpoint that should be used by a consumer that consumes messages produced by this producer."><span class="description">Return the endpoint that should be used by a consumer that consumes messages produced by this producer.</span><pre>_getEndpoint()</pre></a></li>
-<li class="method public "><a href="#enqueue" title="enqueue :: Add an array representing a message to be sent to Mixpanel to a queue."><span class="description">Add an array representing a message to be sent to Mixpanel to a queue.</span><pre>enqueue()</pre></a></li>
-<li class="method public "><a href="#enqueueAll" title="enqueueAll :: Add an array representing a list of messages to be sent to Mixpanel to a queue."><span class="description">Add an array representing a list of messages to be sent to Mixpanel to a queue.</span><pre>enqueueAll()</pre></a></li>
-<li class="method public "><a href="#flush" title="flush :: Iterate the queue and write in batches using the instantiated Consumer Strategy"><span class="description">Iterate the queue and write in batches using the instantiated Consumer Strategy</span><pre>flush()</pre></a></li>
-<li class="method public "><a href="#getQueue" title="getQueue :: Returns the in-memory queue"><span class="description">Returns the in-memory queue</span><pre>getQueue()</pre></a></li>
-<li class="method public "><a href="#getToken" title="getToken :: Returns the current Mixpanel project token"><span class="description">Returns the current Mixpanel project token</span><pre>getToken()</pre></a></li>
-<li class="method public "><a href="#reset" title="reset :: Empties the queue without persisting any of the messages"><span class="description">Empties the queue without persisting any of the messages</span><pre>reset()</pre></a></li>
-<li class="nav-header protected">» Protected</li>
-<li class="method protected inherited"><a href="#_debug" title="_debug :: Returns true if in debug mode, false if in production mode"><span class="description">Returns true if in debug mode, false if in production mode</span><pre>_debug()</pre></a></li>
-<li class="method protected "><a href="#_getConsumer" title="_getConsumer :: Given a strategy type, return a new PersistenceStrategy object"><span class="description">Given a strategy type, return a new PersistenceStrategy object</span><pre>_getConsumer()</pre></a></li>
-<li class="method protected inherited"><a href="#_log" title="_log :: Log a message to PHP's error log"><span class="description">Log a message to PHP's error log</span><pre>_log()</pre></a></li>
-<li class="method protected "><a href="#_persist" title="_persist :: Given an array of messages, persist it with the instantiated Persistence Strategy"><span class="description">Given an array of messages, persist it with the instantiated Persistence Strategy</span><pre>_persist()</pre></a></li>
+<li class="method public "><a href="#method___destruct" title="__destruct :: Flush the queue when we destruct the client with retries"><span class="description">Flush the queue when we destruct the client with retries</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method__getEndpoint" title="_getEndpoint :: Return the endpoint that should be used by a consumer that consumes messages produced by this producer."><span class="description">Return the endpoint that should be used by a consumer that consumes messages produced by this producer.</span><pre>_getEndpoint()</pre></a></li>
+<li class="method public "><a href="#method_enqueue" title="enqueue :: Add an array representing a message to be sent to Mixpanel to a queue."><span class="description">Add an array representing a message to be sent to Mixpanel to a queue.</span><pre>enqueue()</pre></a></li>
+<li class="method public "><a href="#method_enqueueAll" title="enqueueAll :: Add an array representing a list of messages to be sent to Mixpanel to a queue."><span class="description">Add an array representing a list of messages to be sent to Mixpanel to a queue.</span><pre>enqueueAll()</pre></a></li>
+<li class="method public "><a href="#method_flush" title="flush :: Iterate the queue and write in batches using the instantiated Consumer Strategy"><span class="description">Iterate the queue and write in batches using the instantiated Consumer Strategy</span><pre>flush()</pre></a></li>
+<li class="method public "><a href="#method_getQueue" title="getQueue :: Returns the in-memory queue"><span class="description">Returns the in-memory queue</span><pre>getQueue()</pre></a></li>
+<li class="method public "><a href="#method_getToken" title="getToken :: Returns the current Mixpanel project token"><span class="description">Returns the current Mixpanel project token</span><pre>getToken()</pre></a></li>
+<li class="method public "><a href="#method_reset" title="reset :: Empties the queue without persisting any of the messages"><span class="description">Empties the queue without persisting any of the messages</span><pre>reset()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method__debug" title="_debug :: Returns true if in debug mode, false if in production mode"><span class="description">Returns true if in debug mode, false if in production mode</span><pre>_debug()</pre></a></li>
+<li class="method protected "><a href="#method__getConsumer" title="_getConsumer :: Given a strategy type, return a new PersistenceStrategy object"><span class="description">Given a strategy type, return a new PersistenceStrategy object</span><pre>_getConsumer()</pre></a></li>
+<li class="method protected inherited"><a href="#method__log" title="_log :: Log a message to PHP's error log"><span class="description">Log a message to PHP's error log</span><pre>_log()</pre></a></li>
+<li class="method protected "><a href="#method__persist" title="_persist :: Given an array of messages, persist it with the instantiated Persistence Strategy"><span class="description">Given an array of messages, persist it with the instantiated Persistence Strategy</span><pre>_persist()</pre></a></li>
+</ul>
+</li>
 <li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties</li>
-<li class="nav-header protected">» Protected</li>
-<li class="property protected "><a href="#%24_max_queue_size" title="$_max_queue_size :: If the queue reaches this size we'll auto-flush to prevent out of memory errors"><span class="description">If the queue reaches this size we'll auto-flush to prevent out of memory errors</span><pre>$_max_queue_size</pre></a></li>
-<li class="property protected inherited"><a href="#%24_options" title="$_options :: An array of options to be used by the Mixpanel library."><span class="description">An array of options to be used by the Mixpanel library.</span><pre>$_options</pre></a></li>
-<li class="property protected "><a href="#%24_token" title="$_token :: "><span class="description">&lt;p&gt;a token associated to a Mixpanel project&lt;/p&gt;</span><pre>$_token</pre></a></li>
-<li class="nav-header private">» Private</li>
-<li class="property private "><a href="#%24_consumer" title="$_consumer :: "><span class="description">&lt;p&gt;the consumer to use when flushing messages&lt;/p&gt;</span><pre>$_consumer</pre></a></li>
-<li class="property private "><a href="#%24_consumers" title="$_consumers :: "><span class="description">&lt;p&gt;The list of available consumers&lt;/p&gt;</span><pre>$_consumers</pre></a></li>
-<li class="property private inherited"><a href="#%24_defaults" title="$_defaults :: Default options that can be overridden via the $options constructor arg"><span class="description">Default options that can be overridden via the $options constructor arg</span><pre>$_defaults</pre></a></li>
-<li class="property private "><a href="#%24_queue" title="$_queue :: "><span class="description">&lt;p&gt;a queue to hold messages in memory before flushing in batches&lt;/p&gt;</span><pre>$_queue</pre></a></li>
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property__max_queue_size" title="$_max_queue_size :: If the queue reaches this size we'll auto-flush to prevent out of memory errors"><span class="description"></span><pre>$_max_queue_size</pre></a></li>
+<li class="property protected inherited"><a href="#property__options" title="$_options :: An array of options to be used by the Mixpanel library."><span class="description"></span><pre>$_options</pre></a></li>
+<li class="property protected "><a href="#property__token" title="$_token :: "><span class="description">a token associated to a Mixpanel project</span><pre>$_token</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property__consumer" title="$_consumer :: "><span class="description">the consumer to use when flushing messages</span><pre>$_consumer</pre></a></li>
+<li class="property private "><a href="#property__consumers" title="$_consumers :: "><span class="description">The list of available consumers</span><pre>$_consumers</pre></a></li>
+<li class="property private inherited"><a href="#property__defaults" title="$_defaults :: Default options that can be overridden via the $options constructor arg"><span class="description"></span><pre>$_defaults</pre></a></li>
+<li class="property private "><a href="#property__queue" title="$_queue :: "><span class="description">a queue to hold messages in memory before flushing in batches</span><pre>$_queue</pre></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="span8">
-<a name="%5CProducers_MixpanelBaseProducer" id="\Producers_MixpanelBaseProducer"></a><ul class="breadcrumb">
+<a id="\Producers_MixpanelBaseProducer"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -91,20 +105,19 @@ the desired consumer</span><pre>__construct()</pre></a></li>
 <span class="divider">\</span><a href="../classes/Producers_MixpanelBaseProducer.html">Producers_MixpanelBaseProducer</a>
 </li>
 </ul>
-<div href="../classes/Producers_MixpanelBaseProducer.html" class="element class">
-<p class="short_description">Class MixpanelBase</p>
+<div class="element class">
+<p class="short_description">Provides some base methods for use by a message Producer</p>
 <div class="details">
-<p class="long_description"><p>This a Base class which all Mixpanel classes extend from to provide some very basic
-debugging and logging functionality. It also serves to persist $_options across the library.</p></p>
+<div class="long_description"><p>It also serves to persist $_options across the library.</p></div>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
 <h2>Creates a new MixpanelBaseProducer, assings Mixpanel project token, registers custom Consumers, and instantiates
 the desired consumer</h2>
 <pre>__construct($token, array $options) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$token</h4></div>
 <div class="subelement argument">
@@ -113,28 +126,28 @@ the desired consumer</h2>
 </div>
 </div></div>
 </div>
-<a name="__destruct" id="__destruct"></a><div class="element clickable method public __destruct" data-toggle="collapse" data-target=".__destruct .collapse">
+<a id="method___destruct"></a><div class="element clickable method public method___destruct" data-toggle="collapse" data-target=".method___destruct .collapse">
 <h2>Flush the queue when we destruct the client with retries</h2>
 <pre>__destruct() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="_getEndpoint" id="_getEndpoint"></a><div class="element clickable method public _getEndpoint" data-toggle="collapse" data-target="._getEndpoint .collapse">
+<a id="method__getEndpoint"></a><div class="element clickable method public method__getEndpoint" data-toggle="collapse" data-target=".method__getEndpoint .collapse">
 <h2>Return the endpoint that should be used by a consumer that consumes messages produced by this producer.</h2>
 <pre>_getEndpoint() : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a name="enqueue" id="enqueue"></a><div class="element clickable method public enqueue" data-toggle="collapse" data-target=".enqueue .collapse">
+<a id="method_enqueue"></a><div class="element clickable method public method_enqueue" data-toggle="collapse" data-target=".method_enqueue .collapse">
 <h2>Add an array representing a message to be sent to Mixpanel to a queue.</h2>
 <pre>enqueue(array $message) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$message</h4>
@@ -142,12 +155,12 @@ the desired consumer</h2>
 </div>
 </div></div>
 </div>
-<a name="enqueueAll" id="enqueueAll"></a><div class="element clickable method public enqueueAll" data-toggle="collapse" data-target=".enqueueAll .collapse">
+<a id="method_enqueueAll"></a><div class="element clickable method public method_enqueueAll" data-toggle="collapse" data-target=".method_enqueueAll .collapse">
 <h2>Add an array representing a list of messages to be sent to Mixpanel to a queue.</h2>
 <pre>enqueueAll(array $messages) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$messages</h4>
@@ -155,12 +168,12 @@ the desired consumer</h2>
 </div>
 </div></div>
 </div>
-<a name="flush" id="flush"></a><div class="element clickable method public flush" data-toggle="collapse" data-target=".flush .collapse">
+<a id="method_flush"></a><div class="element clickable method public method_flush" data-toggle="collapse" data-target=".method_flush .collapse">
 <h2>Iterate the queue and write in batches using the instantiated Consumer Strategy</h2>
 <pre>flush(int $desired_batch_size) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$desired_batch_size</h4>
@@ -171,38 +184,38 @@ the desired consumer</h2>
 <code>bool</code>whether or not the flush was successful</div>
 </div></div>
 </div>
-<a name="getQueue" id="getQueue"></a><div class="element clickable method public getQueue" data-toggle="collapse" data-target=".getQueue .collapse">
+<a id="method_getQueue"></a><div class="element clickable method public method_getQueue" data-toggle="collapse" data-target=".method_getQueue .collapse">
 <h2>Returns the in-memory queue</h2>
 <pre>getQueue() : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<a name="getToken" id="getToken"></a><div class="element clickable method public getToken" data-toggle="collapse" data-target=".getToken .collapse">
+<a id="method_getToken"></a><div class="element clickable method public method_getToken" data-toggle="collapse" data-target=".method_getToken .collapse">
 <h2>Returns the current Mixpanel project token</h2>
 <pre>getToken() : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a name="reset" id="reset"></a><div class="element clickable method public reset" data-toggle="collapse" data-target=".reset .collapse">
+<a id="method_reset"></a><div class="element clickable method public method_reset" data-toggle="collapse" data-target=".method_reset .collapse">
 <h2>Empties the queue without persisting any of the messages</h2>
 <pre>reset() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="_debug" id="_debug"></a><div class="element clickable method protected _debug" data-toggle="collapse" data-target="._debug .collapse">
+<a id="method__debug"></a><div class="element clickable method protected method__debug" data-toggle="collapse" data-target=".method__debug .collapse">
 <h2>Returns true if in debug mode, false if in production mode</h2>
 <pre>_debug() : bool</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\Base_MixpanelBase::_debug()</td>
@@ -211,22 +224,22 @@ the desired consumer</h2>
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
-<a name="_getConsumer" id="_getConsumer"></a><div class="element clickable method protected _getConsumer" data-toggle="collapse" data-target="._getConsumer .collapse">
+<a id="method__getConsumer"></a><div class="element clickable method protected method__getConsumer" data-toggle="collapse" data-target=".method__getConsumer .collapse">
 <h2>Given a strategy type, return a new PersistenceStrategy object</h2>
 <pre>_getConsumer() : <a href="../classes/ConsumerStrategies_AbstractConsumer.html">\ConsumerStrategies_AbstractConsumer</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code><a href="../classes/ConsumerStrategies_AbstractConsumer.html">\ConsumerStrategies_AbstractConsumer</a></code></div>
 </div></div>
 </div>
-<a name="_log" id="_log"></a><div class="element clickable method protected _log" data-toggle="collapse" data-target="._log .collapse">
+<a id="method__log"></a><div class="element clickable method protected method__log" data-toggle="collapse" data-target=".method__log .collapse">
 <h2>Log a message to PHP's error log</h2>
 <pre>_log($msg) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\Base_MixpanelBase::_log()</td>
@@ -235,12 +248,12 @@ the desired consumer</h2>
 <div class="subelement argument"><h4>$msg</h4></div>
 </div></div>
 </div>
-<a name="_persist" id="_persist"></a><div class="element clickable method protected _persist" data-toggle="collapse" data-target="._persist .collapse">
+<a id="method__persist"></a><div class="element clickable method protected method__persist" data-toggle="collapse" data-target=".method__persist .collapse">
 <h2>Given an array of messages, persist it with the instantiated Persistence Strategy</h2>
 <pre>_persist($message) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$message</h4></div>
 <h3>Returns</h3>
@@ -249,59 +262,59 @@ the desired consumer</h2>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24_max_queue_size" id="$_max_queue_size"> </a><div class="element clickable property protected $_max_queue_size" data-toggle="collapse" data-target=".$_max_queue_size .collapse">
-<h2>If the queue reaches this size we'll auto-flush to prevent out of memory errors</h2>
+<a id="property__max_queue_size"> </a><div class="element clickable property protected property__max_queue_size" data-toggle="collapse" data-target=".property__max_queue_size .collapse">
+<h2></h2>
 <pre>$_max_queue_size : int</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_options" id="$_options"> </a><div class="element clickable property protected $_options" data-toggle="collapse" data-target=".$_options .collapse">
-<h2>An array of options to be used by the Mixpanel library.</h2>
+<a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
+<h2></h2>
 <pre>$_options : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\Base_MixpanelBase::$$_options</td>
 </tr></table>
 </div></div>
 </div>
-<a name="%24_token" id="$_token"> </a><div class="element clickable property protected $_token" data-toggle="collapse" data-target=".$_token .collapse">
-<h2>&lt;p&gt;a token associated to a Mixpanel project&lt;/p&gt;</h2>
+<a id="property__token"> </a><div class="element clickable property protected property__token" data-toggle="collapse" data-target=".property__token .collapse">
+<h2>a token associated to a Mixpanel project</h2>
 <pre>$_token : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_consumer" id="$_consumer"> </a><div class="element clickable property private $_consumer" data-toggle="collapse" data-target=".$_consumer .collapse">
-<h2>&lt;p&gt;the consumer to use when flushing messages&lt;/p&gt;</h2>
+<a id="property__consumer"> </a><div class="element clickable property private property__consumer" data-toggle="collapse" data-target=".property__consumer .collapse">
+<h2>the consumer to use when flushing messages</h2>
 <pre>$_consumer : <a href="../classes/ConsumerStrategies_AbstractConsumer.html">\ConsumerStrategies_AbstractConsumer</a></pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_consumers" id="$_consumers"> </a><div class="element clickable property private $_consumers" data-toggle="collapse" data-target=".$_consumers .collapse">
-<h2>&lt;p&gt;The list of available consumers&lt;/p&gt;</h2>
+<a id="property__consumers"> </a><div class="element clickable property private property__consumers" data-toggle="collapse" data-target=".property__consumers .collapse">
+<h2>The list of available consumers</h2>
 <pre>$_consumers : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_defaults" id="$_defaults"> </a><div class="element clickable property private $_defaults" data-toggle="collapse" data-target=".$_defaults .collapse">
-<h2>Default options that can be overridden via the $options constructor arg</h2>
+<a id="property__defaults"> </a><div class="element clickable property private property__defaults" data-toggle="collapse" data-target=".property__defaults .collapse">
+<h2></h2>
 <pre>$_defaults : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\Base_MixpanelBase::$$_defaults</td>
 </tr></table>
 </div></div>
 </div>
-<a name="%24_queue" id="$_queue"> </a><div class="element clickable property private $_queue" data-toggle="collapse" data-target=".$_queue .collapse">
-<h2>&lt;p&gt;a queue to hold messages in memory before flushing in batches&lt;/p&gt;</h2>
+<a id="property__queue"> </a><div class="element clickable property private property__queue" data-toggle="collapse" data-target=".property__queue .collapse">
+<h2>a queue to hold messages in memory before flushing in batches</h2>
 <pre>$_queue : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
@@ -309,8 +322,8 @@ the desired consumer</h2>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
-            generated on 2013-06-20T13:02:26-07:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-06-20T14:19:58-07:00.<br></footer></div>
 </div>
 </body>
 </html>

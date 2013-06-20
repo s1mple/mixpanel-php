@@ -1,9 +1,9 @@
-<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \ConsumerStrategies_SocketConsumer</title>
+<title>Mixpanel PHP API Reference » \ConsumerStrategies_SocketConsumer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Mixpanel PHP API Reference</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -28,7 +28,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">18</span></a></li>
+                <span class="label label-info">9</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -51,39 +51,50 @@
 </div>
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
-<i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#__construct" title="__construct :: Creates a new SocketConsumer and assigns properties from the $options array"><span class="description">Creates a new SocketConsumer and assigns properties from the $options array</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#persist" title="persist :: Write using a persistent socket connection."><span class="description">Write using a persistent socket connection.</span><pre>persist()</pre></a></li>
-<li class="nav-header protected">» Protected</li>
-<li class="method protected inherited"><a href="#_debug" title="_debug :: Returns true if in debug mode, false if in production mode"><span class="description">Returns true if in debug mode, false if in production mode</span><pre>_debug()</pre></a></li>
-<li class="method protected inherited"><a href="#_encode" title="_encode :: Encode an array to be persisted"><span class="description">Encode an array to be persisted</span><pre>_encode()</pre></a></li>
-<li class="method protected inherited"><a href="#_handleError" title="_handleError :: Handles errors that occur in a consumer"><span class="description">Handles errors that occur in a consumer</span><pre>_handleError()</pre></a></li>
-<li class="method protected inherited"><a href="#_log" title="_log :: Log a message to PHP's error log"><span class="description">Log a message to PHP's error log</span><pre>_log()</pre></a></li>
-<li class="nav-header private">» Private</li>
-<li class="method private "><a href="#_createSocket" title="_createSocket :: "><span class="description">_createSocket()
-        </span><pre>_createSocket()</pre></a></li>
-<li class="method private "><a href="#_destroySocket" title="_destroySocket :: "><span class="description">_destroySocket()
-        </span><pre>_destroySocket()</pre></a></li>
-<li class="method private "><a href="#_getSocket" title="_getSocket :: Return cached socket if open or create a new persistent socket"><span class="description">Return cached socket if open or create a new persistent socket</span><pre>_getSocket()</pre></a></li>
-<li class="method private "><a href="#_write" title="_write :: Write $data through the given $socket"><span class="description">Write $data through the given $socket</span><pre>_write()</pre></a></li>
-<li class="method private "><a href="#handleResponse" title="handleResponse :: Parse the response from a socket write (only used for debugging)"><span class="description">Parse the response from a socket write (only used for debugging)</span><pre>handleResponse()</pre></a></li>
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Creates a new SocketConsumer and assigns properties from the $options array"><span class="description">Creates a new SocketConsumer and assigns properties from the $options array</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_persist" title="persist :: Write using a persistent socket connection."><span class="description">Write using a persistent socket connection.</span><pre>persist()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="method protected inherited"><a href="#method__debug" title="_debug :: Returns true if in debug mode, false if in production mode"><span class="description">Returns true if in debug mode, false if in production mode</span><pre>_debug()</pre></a></li>
+<li class="method protected inherited"><a href="#method__encode" title="_encode :: Encode an array to be persisted"><span class="description">Encode an array to be persisted</span><pre>_encode()</pre></a></li>
+<li class="method protected inherited"><a href="#method__handleError" title="_handleError :: Handles errors that occur in a consumer"><span class="description">Handles errors that occur in a consumer</span><pre>_handleError()</pre></a></li>
+<li class="method protected inherited"><a href="#method__log" title="_log :: Log a message to PHP's error log"><span class="description">Log a message to PHP's error log</span><pre>_log()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method__createSocket" title="_createSocket :: Attempt to open a new socket connection, cache it, and return the resource"><span class="description">Attempt to open a new socket connection, cache it, and return the resource</span><pre>_createSocket()</pre></a></li>
+<li class="method private "><a href="#method__destroySocket" title="_destroySocket :: Attempt to close and dereference a socket resource"><span class="description">Attempt to close and dereference a socket resource</span><pre>_destroySocket()</pre></a></li>
+<li class="method private "><a href="#method__getSocket" title="_getSocket :: Return cached socket if open or create a new persistent socket"><span class="description">Return cached socket if open or create a new persistent socket</span><pre>_getSocket()</pre></a></li>
+<li class="method private "><a href="#method__write" title="_write :: Write $data through the given $socket"><span class="description">Write $data through the given $socket</span><pre>_write()</pre></a></li>
+<li class="method private "><a href="#method_handleResponse" title="handleResponse :: Parse the response from a socket write (only used for debugging)"><span class="description">Parse the response from a socket write (only used for debugging)</span><pre>handleResponse()</pre></a></li>
+</ul>
+</li>
 <li class="nav-header">
-<i class="icon-custom icon-property"></i> Properties</li>
-<li class="nav-header protected">» Protected</li>
-<li class="property protected inherited"><a href="#%24_options" title="$_options :: An array of options to be used by the Mixpanel library."><span class="description">An array of options to be used by the Mixpanel library.</span><pre>$_options</pre></a></li>
-<li class="nav-header private">» Private</li>
-<li class="property private inherited"><a href="#%24_defaults" title="$_defaults :: Default options that can be overridden via the $options constructor arg"><span class="description">Default options that can be overridden via the $options constructor arg</span><pre>$_defaults</pre></a></li>
-<li class="property private "><a href="#%24_endpoint" title="$_endpoint :: "><span class="description">&lt;p&gt;the host-relative endpoint to write to (e.g. /engage)&lt;/p&gt;
-</span><pre>$_endpoint</pre></a></li>
-<li class="property private "><a href="#%24_host" title="$_host :: "><span class="description">&lt;p&gt;the host to connect to (e.g. api.mixpanel.com)&lt;/p&gt;
-</span><pre>$_host</pre></a></li>
-<li class="property private "><a href="#%24_protocol" title="$_protocol :: "><span class="description">&lt;p&gt;the protocol to use for the socket connection&lt;/p&gt;</span><pre>$_protocol</pre></a></li>
-<li class="property private "><a href="#%24_socket" title="$_socket :: "><span class="description">&lt;p&gt;holds the socket resource&lt;/p&gt;</span><pre>$_socket</pre></a></li>
-<li class="property private "><a href="#%24_timeout" title="$_timeout :: "><span class="description">&lt;p&gt;timeout the socket connection timeout in seconds&lt;/p&gt;</span><pre>$_timeout</pre></a></li>
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="property protected inherited"><a href="#property__options" title="$_options :: An array of options to be used by the Mixpanel library."><span class="description"></span><pre>$_options</pre></a></li></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private inherited"><a href="#property__defaults" title="$_defaults :: Default options that can be overridden via the $options constructor arg"><span class="description"></span><pre>$_defaults</pre></a></li>
+<li class="property private "><a href="#property__endpoint" title="$_endpoint :: "><span class="description">the host-relative endpoint to write to (e.g. /engage)</span><pre>$_endpoint</pre></a></li>
+<li class="property private "><a href="#property__host" title="$_host :: "><span class="description">the host to connect to (e.g. api.mixpanel.com)</span><pre>$_host</pre></a></li>
+<li class="property private "><a href="#property__protocol" title="$_protocol :: "><span class="description">the protocol to use for the socket connection</span><pre>$_protocol</pre></a></li>
+<li class="property private "><a href="#property__socket" title="$_socket :: "><span class="description">holds the socket resource</span><pre>$_socket</pre></a></li>
+<li class="property private "><a href="#property__timeout" title="$_timeout :: "><span class="description">timeout the socket connection timeout in seconds</span><pre>$_timeout</pre></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="span8">
-<a name="%5CConsumerStrategies_SocketConsumer" id="\ConsumerStrategies_SocketConsumer"></a><ul class="breadcrumb">
+<a id="\ConsumerStrategies_SocketConsumer"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -92,19 +103,18 @@
 <span class="divider">\</span><a href="../classes/ConsumerStrategies_SocketConsumer.html">ConsumerStrategies_SocketConsumer</a>
 </li>
 </ul>
-<div href="../classes/ConsumerStrategies_SocketConsumer.html" class="element class">
-<p class="short_description">Class MixpanelBase</p>
+<div class="element class">
+<p class="short_description">Consumes messages and writes them to host/endpoint using a persistent socket</p>
 <div class="details">
-<p class="long_description"><p>This a Base class which all Mixpanel classes extend from to provide some very basic
-debugging and logging functionality. It also serves to persist $_options across the library.</p></p>
+<div class="long_description"><p>It also serves to persist $_options across the library.</p></div>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
 <h2>Creates a new SocketConsumer and assigns properties from the $options array</h2>
 <pre>__construct(array $options) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$options</h4>
@@ -112,12 +122,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 </div>
 </div></div>
 </div>
-<a name="persist" id="persist"></a><div class="element clickable method public persist" data-toggle="collapse" data-target=".persist .collapse">
+<a id="method_persist"></a><div class="element clickable method public method_persist" data-toggle="collapse" data-target=".method_persist .collapse">
 <h2>Write using a persistent socket connection.</h2>
 <pre>persist(array $batch) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$batch</h4>
@@ -127,12 +137,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
-<a name="_debug" id="_debug"></a><div class="element clickable method protected _debug" data-toggle="collapse" data-target="._debug .collapse">
+<a id="method__debug"></a><div class="element clickable method protected method__debug" data-toggle="collapse" data-target=".method__debug .collapse">
 <h2>Returns true if in debug mode, false if in production mode</h2>
 <pre>_debug() : bool</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
@@ -147,12 +157,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
-<a name="_encode" id="_encode"></a><div class="element clickable method protected _encode" data-toggle="collapse" data-target="._encode .collapse">
+<a id="method__encode"></a><div class="element clickable method protected method__encode" data-toggle="collapse" data-target=".method__encode .collapse">
 <h2>Encode an array to be persisted</h2>
 <pre>_encode(array $params) : string</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\ConsumerStrategies_AbstractConsumer::_encode()</td>
@@ -166,12 +176,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a name="_handleError" id="_handleError"></a><div class="element clickable method protected _handleError" data-toggle="collapse" data-target="._handleError .collapse">
+<a id="method__handleError"></a><div class="element clickable method protected method__handleError" data-toggle="collapse" data-target=".method__handleError .collapse">
 <h2>Handles errors that occur in a consumer</h2>
 <pre>_handleError($code, $msg) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\ConsumerStrategies_AbstractConsumer::_handleError()</td>
@@ -181,12 +191,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement argument"><h4>$msg</h4></div>
 </div></div>
 </div>
-<a name="_log" id="_log"></a><div class="element clickable method protected _log" data-toggle="collapse" data-target="._log .collapse">
+<a id="method__log"></a><div class="element clickable method protected method__log" data-toggle="collapse" data-target=".method__log .collapse">
 <h2>Log a message to PHP's error log</h2>
 <pre>_log($msg) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
@@ -201,42 +211,47 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement argument"><h4>$msg</h4></div>
 </div></div>
 </div>
-<a name="_createSocket" id="_createSocket"></a><div class="element clickable method private _createSocket" data-toggle="collapse" data-target="._createSocket .collapse">
-<h2>_createSocket()
-        </h2>
-<pre>_createSocket($retry) </pre>
+<a id="method__createSocket"></a><div class="element clickable method private method__createSocket" data-toggle="collapse" data-target=".method__createSocket .collapse">
+<h2>Attempt to open a new socket connection, cache it, and return the resource</h2>
+<pre>_createSocket(bool $retry) : bool | resource</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$retry</h4></div>
-</div></div>
+<div class="subelement argument">
+<h4>$retry</h4>
+<code>bool</code>
 </div>
-<a name="_destroySocket" id="_destroySocket"></a><div class="element clickable method private _destroySocket" data-toggle="collapse" data-target="._destroySocket .collapse">
-<h2>_destroySocket()
-        </h2>
-<pre>_destroySocket() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="_getSocket" id="_getSocket"></a><div class="element clickable method private _getSocket" data-toggle="collapse" data-target="._getSocket .collapse">
-<h2>Return cached socket if open or create a new persistent socket</h2>
-<pre>_getSocket() : bool | resource</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>bool</code><code>resource</code>
 </div>
 </div></div>
 </div>
-<a name="_write" id="_write"></a><div class="element clickable method private _write" data-toggle="collapse" data-target="._write .collapse">
+<a id="method__destroySocket"></a><div class="element clickable method private method__destroySocket" data-toggle="collapse" data-target=".method__destroySocket .collapse">
+<h2>Attempt to close and dereference a socket resource</h2>
+<pre>_destroySocket() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method__getSocket"></a><div class="element clickable method private method__getSocket" data-toggle="collapse" data-target=".method__getSocket .collapse">
+<h2>Return cached socket if open or create a new persistent socket</h2>
+<pre>_getSocket() : bool | resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code><code>resource</code>
+</div>
+</div></div>
+</div>
+<a id="method__write"></a><div class="element clickable method private method__write" data-toggle="collapse" data-target=".method__write .collapse">
 <h2>Write $data through the given $socket</h2>
 <pre>_write($socket, $data, bool $retry) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$socket</h4></div>
 <div class="subelement argument"><h4>$data</h4></div>
@@ -248,12 +263,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
-<a name="handleResponse" id="handleResponse"></a><div class="element clickable method private handleResponse" data-toggle="collapse" data-target=".handleResponse .collapse">
+<a id="method_handleResponse"></a><div class="element clickable method private method_handleResponse" data-toggle="collapse" data-target=".method_handleResponse .collapse">
 <h2>Parse the response from a socket write (only used for debugging)</h2>
 <pre>handleResponse($response) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$response</h4></div>
 <h3>Returns</h3>
@@ -262,12 +277,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24_options" id="$_options"> </a><div class="element clickable property protected $_options" data-toggle="collapse" data-target=".$_options .collapse">
-<h2>An array of options to be used by the Mixpanel library.</h2>
+<a id="property__options"> </a><div class="element clickable property protected property__options" data-toggle="collapse" data-target=".property__options .collapse">
+<h2></h2>
 <pre>$_options : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
@@ -280,12 +295,12 @@ debugging and logging functionality. It also serves to persist $_options across 
 </table>
 </div></div>
 </div>
-<a name="%24_defaults" id="$_defaults"> </a><div class="element clickable property private $_defaults" data-toggle="collapse" data-target=".$_defaults .collapse">
-<h2>Default options that can be overridden via the $options constructor arg</h2>
+<a id="property__defaults"> </a><div class="element clickable property private property__defaults" data-toggle="collapse" data-target=".property__defaults .collapse">
+<h2></h2>
 <pre>$_defaults : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
@@ -298,37 +313,35 @@ debugging and logging functionality. It also serves to persist $_options across 
 </table>
 </div></div>
 </div>
-<a name="%24_endpoint" id="$_endpoint"> </a><div class="element clickable property private $_endpoint" data-toggle="collapse" data-target=".$_endpoint .collapse">
-<h2>&lt;p&gt;the host-relative endpoint to write to (e.g. /engage)&lt;/p&gt;
-</h2>
+<a id="property__endpoint"> </a><div class="element clickable property private property__endpoint" data-toggle="collapse" data-target=".property__endpoint .collapse">
+<h2>the host-relative endpoint to write to (e.g. /engage)</h2>
 <pre>$_endpoint : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_host" id="$_host"> </a><div class="element clickable property private $_host" data-toggle="collapse" data-target=".$_host .collapse">
-<h2>&lt;p&gt;the host to connect to (e.g. api.mixpanel.com)&lt;/p&gt;
-</h2>
+<a id="property__host"> </a><div class="element clickable property private property__host" data-toggle="collapse" data-target=".property__host .collapse">
+<h2>the host to connect to (e.g. api.mixpanel.com)</h2>
 <pre>$_host : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_protocol" id="$_protocol"> </a><div class="element clickable property private $_protocol" data-toggle="collapse" data-target=".$_protocol .collapse">
-<h2>&lt;p&gt;the protocol to use for the socket connection&lt;/p&gt;</h2>
+<a id="property__protocol"> </a><div class="element clickable property private property__protocol" data-toggle="collapse" data-target=".property__protocol .collapse">
+<h2>the protocol to use for the socket connection</h2>
 <pre>$_protocol : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_socket" id="$_socket"> </a><div class="element clickable property private $_socket" data-toggle="collapse" data-target=".$_socket .collapse">
-<h2>&lt;p&gt;holds the socket resource&lt;/p&gt;</h2>
+<a id="property__socket"> </a><div class="element clickable property private property__socket" data-toggle="collapse" data-target=".property__socket .collapse">
+<h2>holds the socket resource</h2>
 <pre>$_socket : resource</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a name="%24_timeout" id="$_timeout"> </a><div class="element clickable property private $_timeout" data-toggle="collapse" data-target=".$_timeout .collapse">
-<h2>&lt;p&gt;timeout the socket connection timeout in seconds&lt;/p&gt;</h2>
+<a id="property__timeout"> </a><div class="element clickable property private property__timeout" data-toggle="collapse" data-target=".property__timeout .collapse">
+<h2>timeout the socket connection timeout in seconds</h2>
 <pre>$_timeout : int</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
@@ -336,8 +349,8 @@ debugging and logging functionality. It also serves to persist $_options across 
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a9</a> and<br>
-            generated on 2013-06-20T13:02:26-07:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-06-20T14:19:58-07:00.<br></footer></div>
 </div>
 </body>
 </html>

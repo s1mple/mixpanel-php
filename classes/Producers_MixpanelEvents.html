@@ -65,6 +65,7 @@ the desired consumer</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method_getProperty" title="getProperty :: Get a property that is set to be sent with every event"><span class="description">Get a property that is set to be sent with every event</span><pre>getProperty()</pre></a></li>
 <li class="method public inherited"><a href="#method_getQueue" title="getQueue :: Returns the in-memory queue"><span class="description">Returns the in-memory queue</span><pre>getQueue()</pre></a></li>
 <li class="method public inherited"><a href="#method_getToken" title="getToken :: Returns the current Mixpanel project token"><span class="description">Returns the current Mixpanel project token</span><pre>getToken()</pre></a></li>
+<li class="method public "><a href="#method_identify" title="identify :: Identify the user you want to associate to tracked events"><span class="description">Identify the user you want to associate to tracked events</span><pre>identify()</pre></a></li>
 <li class="method public "><a href="#method_register" title="register :: Register a property to be sent with every event."><span class="description">Register a property to be sent with every event.</span><pre>register()</pre></a></li>
 <li class="method public "><a href="#method_registerAll" title="registerAll :: Register multiple properties to be sent with every event."><span class="description">Register multiple properties to be sent with every event.</span><pre>registerAll()</pre></a></li>
 <li class="method public "><a href="#method_registerAllOnce" title="registerAllOnce :: Register multiple properties to be sent with every event."><span class="description">Register multiple properties to be sent with every event.</span><pre>registerAllOnce()</pre></a></li>
@@ -168,7 +169,11 @@ the desired consumer</h2>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>This is helpful when you want to associate a generated id to
-a username or e-mail address.</p></div>
+a username or e-mail address.</p>
+
+<p>Because aliasing can be extremely vulnerable to race conditions and ordering issues, we'll make a synchronous
+call directly to Mixpanel when this method is called. If it fails we'll throw an Exception as subsequent
+events are likely to be incorrectly tracked.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$original_id</h4>
@@ -178,6 +183,11 @@ a username or e-mail address.</p></div>
 <h4>$new_id</h4>
 <code>string</code><code>int</code>
 </div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td></td>
+</tr></table>
 </div></div>
 </div>
 <a id="method_enqueue"></a><div class="element clickable method public method_enqueue" data-toggle="collapse" data-target=".method_enqueue .collapse">
@@ -275,6 +285,19 @@ a username or e-mail address.</p></div>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_identify"></a><div class="element clickable method public method_identify" data-toggle="collapse" data-target=".method_identify .collapse">
+<h2>Identify the user you want to associate to tracked events</h2>
+<pre>identify(string | int $user_id) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$user_id</h4>
+<code>string</code><code>int</code>
+</div>
 </div></div>
 </div>
 <a id="method_register"></a><div class="element clickable method public method_register" data-toggle="collapse" data-target=".method_register .collapse">
@@ -571,7 +594,7 @@ overwritten.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-06-20T14:19:58-07:00.<br></footer></div>
+            generated on 2013-06-20T19:28:46-07:00.<br></footer></div>
 </div>
 </body>
 </html>

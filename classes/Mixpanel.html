@@ -60,6 +60,7 @@
 <li class="method public "><a href="#method_flush" title="flush :: Flush the events queue"><span class="description">Flush the events queue</span><pre>flush()</pre></a></li>
 <li class="method public "><a href="#method_getInstance" title="getInstance :: Returns a singleton instance of Mixpanel"><span class="description">Returns a singleton instance of Mixpanel</span><pre>getInstance()</pre></a></li>
 <li class="method public "><a href="#method_getProperty" title="getProperty :: Get a property that is set to be sent with every event"><span class="description">Get a property that is set to be sent with every event</span><pre>getProperty()</pre></a></li>
+<li class="method public "><a href="#method_identify" title="identify :: Identify the user you want to associate to tracked events"><span class="description">Identify the user you want to associate to tracked events</span><pre>identify()</pre></a></li>
 <li class="method public "><a href="#method_register" title="register :: Register a property to be sent with every event."><span class="description">Register a property to be sent with every event.</span><pre>register()</pre></a></li>
 <li class="method public "><a href="#method_registerAll" title="registerAll :: Register multiple properties to be sent with every event."><span class="description">Register multiple properties to be sent with every event.</span><pre>registerAll()</pre></a></li>
 <li class="method public "><a href="#method_registerAllOnce" title="registerAllOnce :: Register multiple properties to be sent with every event."><span class="description">Register multiple properties to be sent with every event.</span><pre>registerAllOnce()</pre></a></li>
@@ -293,6 +294,19 @@ the user thread.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_identify"></a><div class="element clickable method public method_identify" data-toggle="collapse" data-target=".method_identify .collapse">
+<h2>Identify the user you want to associate to tracked events</h2>
+<pre>identify(string | int $user_id) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$user_id</h4>
+<code>string</code><code>int</code>
+</div>
+</div></div>
+</div>
 <a id="method_register"></a><div class="element clickable method public method_register" data-toggle="collapse" data-target=".method_register .collapse">
 <h2>Register a property to be sent with every event.</h2>
 <pre>register(string $property, mixed $value) </pre>
@@ -481,7 +495,7 @@ overwritten. NOTE: Registered properties are only persisted for the life of the 
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
-            generated on 2013-06-20T14:19:58-07:00.<br></footer></div>
+            generated on 2013-06-20T19:28:46-07:00.<br></footer></div>
 </div>
 </body>
 </html>
